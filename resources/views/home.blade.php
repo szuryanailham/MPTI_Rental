@@ -56,15 +56,15 @@
               <div class="container">
                 <div class="row align-items-start mt-3" style="font-size: 15px;">
                   <div class="col">
-                    <img src="assets/clock.png" alt="clock" >
+                    <img src="/assets/clock.png" alt="clock" >
                     <p>Jam</p>
                   </div>
                   <div class="col">
-                    <img src="assets/gas_station.png" alt="clock">
+                    <img src="/assets/gas_station.png" alt="clock">
                     <p>Orang</p>
                   </div>
                   <div class="col">
-                    <img src="assets/user_unit.png" alt="clock">
+                    <img src="/assets/user_unit.png" alt="clock">
                     <p>Full Bensin</p>
                   </div>
                 </div>
