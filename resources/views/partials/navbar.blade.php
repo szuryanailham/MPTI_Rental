@@ -7,10 +7,10 @@
             <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent" >
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item me-5">
-                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active" aria-current="page" href="j">Home</a>
                 </li>
                 <li class="nav-item me-5">
-                  <a class="nav-link" href="#">Profile</a>
+                  <a class="nav-link" href="about.html">Profile</a>
                 </li>
                 <li class="nav-item me-5">
                   <a class="nav-link" href="testimony.html">Testimony</a>
