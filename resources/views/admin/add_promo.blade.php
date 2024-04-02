@@ -15,8 +15,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="">
+            <li class="nav-item ">
+                <a class="nav-link" href="index.html">
                     <i>
                         <img src="assets/chart icon.png" alt="">
                     </i>
@@ -82,8 +82,8 @@
             </li>
 
             <!-- Nav Item - Promo -->
-            <li class="nav-item">
-                <a class="nav-link" href="add_promo.html">
+            <li class="nav-item active">
+                <a class="nav-link" href="">
                     <i>
                         <img src="assets/promo icon.png" alt="">
                     </i>
@@ -306,77 +306,28 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-dark font-weight-bold">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800 font-weight-bold">Add Promo</h1>
                         <a href="add_unit.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-plus fa-sm text-white-50"></i>  Add Unit</a>
                     </div>
 
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Open Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4" >
-                            <div class="card py-2" style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center" >
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Open Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/Group.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Open Order Card END -->
-
-                        <!-- Total Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2"  style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">Rp.700.000</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Total Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/card.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Total Order Card END -->
-
-                        <!-- People Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2" style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                People Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/people.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- People Order Card END -->
+                    <div class="text-dark">
+                        <div>
+                            <p>Kode Promo</p>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div><br>
+                        <div>
+                            <p>Nama Promo</p>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div><br>
+                        <div>
+                            <p>Upload Banner Promo</p>
+                    
+                        </div><br>
                     </div>
+                    
+
+                    
         </div>
         <!-- End of Content Wrapper -->
 
@@ -408,6 +359,4 @@
         </div>
     </div>
 
-   
-
-    @endsection
+@endsection

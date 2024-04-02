@@ -1,58 +1,89 @@
 @extends('layouts.main')
     @section('container')
-    <!-- Page Wrapper -->
+<!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-dark bg-dark text-light" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                    <img src="/assets/logo_cw.png" alt="CW">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
                 </div>
+                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
+
+            <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="">
-                    <i>
-                        <img src="assets/chart icon.png" alt="">
-                    </i>
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Nav Item - All Unit -->
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="all_unit.html">
-                    <i> 
-                        <img src="assets/car icon.png" alt=""> 
-                    </i>
-                    <span>All Unit</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Components</span>
                 </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="buttons.html">Buttons</a>
+                        <a class="collapse-item" href="cards.html">Cards</a>
+                    </div>
+                </div>
             </li>
 
-            <!-- Nav Item - Transaction -->
+            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="transaction.html" >
-                    <i>
-                        <img src="assets/icon_transaction.png" alt="">
-                    </i>
-                    <span>Transaction</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Utilities</span>
                 </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Utilities:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="utilities-border.html">Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                    </div>
+                </div>
             </li>
 
-            <!-- Nav Item - Feedback -->
-            <li class="nav-item">
-                <a class="nav-link " href="feedback.html">
-                    <i>
-                        <img src="assets/feedback icon.png" alt="">
-                    </i>
-                    <span>Feedback</span>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Addons
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                    aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pages</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
@@ -61,35 +92,26 @@
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        <a class="collapse-item active" href="blank.html">Blank Page</a>
                     </div>
                 </div>
             </li>
-            <hr class="sidebar-divider">
 
-            
-            <div class="sidebar-heading">
-                OTHERS
-            </div>
-
-            <!-- Nav Item - Add Unit -->
+            <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="add_unit.html">
-                    <i>
-                        <img src="assets/add unit icon.png" alt="">
-                    </i>
-                    <span>Add Unit</span></a>
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Charts</span></a>
             </li>
 
-            <!-- Nav Item - Promo -->
+            <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="add_promo.html">
-                    <i>
-                        <img src="assets/promo icon.png" alt="">
-                    </i>
-                    <span>Promo</span></a>
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tables</span></a>
             </li>
 
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -97,7 +119,6 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            
         </ul>
         <!-- End of Sidebar -->
 
@@ -119,10 +140,10 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search"
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-light" type="button">
+                                <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
@@ -279,7 +300,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Bayu Waskitha</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
@@ -290,6 +311,14 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -297,7 +326,9 @@
                                 </a>
                             </div>
                         </li>
+
                     </ul>
+
                 </nav>
                 <!-- End of Topbar -->
 
@@ -305,78 +336,24 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-dark font-weight-bold">Dashboard</h1>
-                        <a href="add_unit.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-plus fa-sm text-white-50"></i>  Add Unit</a>
+                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
                     </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Open Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4" >
-                            <div class="card py-2" style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center" >
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Open Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/Group.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Open Order Card END -->
-
-                        <!-- Total Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2"  style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">Rp.700.000</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Total Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/card.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Total Order Card END -->
-
-                        <!-- People Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2" style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                People Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/people.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- People Order Card END -->
-                    </div>
         </div>
         <!-- End of Content Wrapper -->
 
@@ -408,6 +385,4 @@
         </div>
     </div>
 
-   
-
-    @endsection
+  @endsection
