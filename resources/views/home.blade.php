@@ -50,7 +50,7 @@
             <div>800K</div>
           </div>
           <div class="card-body mx-auto">
-            <a href="detail.html">
+            <a href="/detail">
               <img src="https://picsum.photos/200" class="img-thumbnail" alt="gambar unit mobil">
             </a>
               <div class="container">
