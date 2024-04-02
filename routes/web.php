@@ -29,8 +29,8 @@ Route::get('/order', function () {
     return view('order');
 });
 
-Route::get('/order', function () {
-    return view('login');
+Route::get('/login', function () {
+    return view('login_admin');
 });
 
 Route::get('/profile', function () {
