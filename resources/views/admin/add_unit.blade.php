@@ -15,8 +15,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
                     <i>
                         <img src="assets/chart icon.png" alt="">
                     </i>
@@ -73,8 +73,8 @@
             </div>
 
             <!-- Nav Item - Add Unit -->
-            <li class="nav-item">
-                <a class="nav-link" href="add_unit.html">
+            <li class="nav-item active">
+                <a class="nav-link" href="">
                     <i>
                         <img src="assets/add unit icon.png" alt="">
                     </i>
@@ -305,78 +305,66 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-dark font-weight-bold">Dashboard</h1>
-                        <a href="add_unit.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4 text-dark">
+                        <h1 class="h3 mb-0 text-dark font-weight-bold">Add Unit</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-plus fa-sm text-white-50"></i>  Add Unit</a>
                     </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Open Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4" >
-                            <div class="card py-2" style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center" >
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Open Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/Group.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Open Order Card END -->
-
-                        <!-- Total Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2"  style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">Rp.700.000</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Total Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/card.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Total Order Card END -->
-
-                        <!-- People Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2" style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                People Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/people.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- People Order Card END -->
+                    <div class="text-dark">
+                        <p>Nama Unit</p>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div><br>
+                    <div class="text-dark">
+                        <p>Kategori</p>
+                        <div class="input-group mb-3">
+                            <select id="kategori_select">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                          </div>
                     </div>
+                    <div class="text-dark">
+                        <p>Harga</p>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"><br>
+                    </div>
+                    <div class="container">
+                        <div class="select-wrapper text-dark ">
+                            <label for="select1">Jenis</label>
+                            <select id="select1">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="select-wrapper text-dark">
+                            <label for="select2">Kendali</label>
+                            <select id="select2">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div>
+                        <div class="select-wrapper text-dark">
+                            <label for="select3">Gosaline</label>
+                            <select id="select3">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div>
+                    </div><br>
+                    <div class="text-dark">
+                        <p>Upload Image</p>
+                    </div><br>
+                    <div class="text-dark">
+                        <p>Penjelasan</p>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                    </div><br>
+                    <button type="button" class="btn btn-dark" style="display: block; margin: 0 auto;">Submit</button>
+                    
+                    
+
         </div>
         <!-- End of Content Wrapper -->
 
@@ -407,7 +395,5 @@
             </div>
         </div>
     </div>
-
-   
 
     @endsection

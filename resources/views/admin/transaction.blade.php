@@ -1,6 +1,6 @@
 @extends('layouts.main')
     @section('container')
-    <!-- Page Wrapper -->
+<!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -15,8 +15,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
                     <i>
                         <img src="assets/chart icon.png" alt="">
                     </i>
@@ -35,8 +35,8 @@
             </li>
 
             <!-- Nav Item - Transaction -->
-            <li class="nav-item">
-                <a class="nav-link" href="transaction.html" >
+            <li class="nav-item active">
+                <a class="nav-link" href="" >
                     <i>
                         <img src="assets/icon_transaction.png" alt="">
                     </i>
@@ -306,79 +306,73 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-dark font-weight-bold">Dashboard</h1>
-                        <a href="add_unit.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-plus fa-sm text-white-50"></i>  Add Unit</a>
+                        <h1 class="h3 mb-0 text-gray-800 font-weight-bold">Transaction</h1>
+                        <a href="add_unit.html"d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-plus fa-sm text-white-50"></i> Add Unit</a>
                     </div>
 
-                    <!-- Content Row -->
+                    <!-- Daftar Transaksi Pemesanan -->
                     <div class="row">
-
-                        <!-- Open Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4" >
-                            <div class="card py-2" style="background-color: #3D74B4;">
+                        <div class="col-lg-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Daftar Transaksi Pemesanan</h6>
+                                </div>
                                 <div class="card-body">
-                                    <div class="row no-gutters align-items-center" >
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Open Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/Group.png" alt="">
-                                            </i>
-                                        </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered text-dark font-weight-bold" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID Pemesanan</th>
+                                                    <th>Gambar Unit</th>
+                                                    <th>Nama Unit</th>
+                                                    <th>Kategori Unit</th>
+                                                    <th>Nama Peminjam</th>
+                                                    <th>Nomor Telefon Peminjam</th>
+                                                    <th>Alamat Peminjam</th>
+                                                    <th>Harga Total Peminjam</th>
+                                                    <th>Tanggal Mulai</th>
+                                                    <th>Tanggal Akhir</th>
+                                                    <th>Lokasi Awal Peminjaman</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Data transaksi pemesanan akan ditampilkan di sini -->
+                                                <tr>
+                                                    <td>001</td>
+                                                    <td><img src="gambar_unit.jpg" alt="Gambar Unit" style="width: 100px;"></td>
+                                                    <td>Toyota Avanza</td>
+                                                    <td>Mobil</td>
+                                                    <td>John Doe</td>
+                                                    <td>08123456789</td>
+                                                    <td>Jl. Contoh No. 123</td>
+                                                    <td>Rp 500.000</td>
+                                                    <td>2024-02-11</td>
+                                                    <td>2024-02-15</td>
+                                                    <td>Jakarta</td>
+                                                    <td>
+                                                        <button class="btn btn-primary btn-sm">Edit</button>
+                                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Open Order Card END -->
-
-                        <!-- Total Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2"  style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">Rp.700.000</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Total Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/card.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Total Order Card END -->
-
-                        <!-- People Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2" style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                People Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/people.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- People Order Card END -->
                     </div>
+
+                </div>
+                <!-- End of Page Content -->
+
+
+</div>
+<!-- End of Page Content -->
         </div>
         <!-- End of Content Wrapper -->
+
 
     </div>
     <!-- End of Page Wrapper -->
@@ -407,7 +401,4 @@
             </div>
         </div>
     </div>
-
-   
-
-    @endsection
+  @endsection

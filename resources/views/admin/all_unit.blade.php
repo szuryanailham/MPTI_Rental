@@ -15,8 +15,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="">
+            <li class="nav-item ">
+                <a class="nav-link" href="index.html">
                     <i>
                         <img src="assets/chart icon.png" alt="">
                     </i>
@@ -25,8 +25,8 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - All Unit -->
-            <li class="nav-item">
-                <a class="nav-link" href="all_unit.html">
+            <li class="nav-item active">
+                <a class="nav-link" href="">
                     <i> 
                         <img src="assets/car icon.png" alt=""> 
                     </i>
@@ -306,77 +306,31 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-dark font-weight-bold">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800 font-weight-bold">All Unit</h1>
                         <a href="add_unit.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-plus fa-sm text-white-50"></i>  Add Unit</a>
                     </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Open Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4" >
-                            <div class="card py-2" style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center" >
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Open Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/Group.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Open Order Card END -->
-
-                        <!-- Total Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2"  style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">Rp.700.000</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                Total Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/card.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Total Order Card END -->
-
-                        <!-- People Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
-                            <div class="card py-2" style="background-color: #3D74B4;">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="h2 mb-0 font-weight-bold text-white">11</div>
-                                            <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
-                                                People Order</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i>
-                                                <img src="assets/people.png" alt="">
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- People Order Card END -->
+                    <div >
+                        <!-- table table-borderless -->
+                        <table class="table table-borderless text-dark font-weight-bold">
+                            <tr>
+                                <td>ID Unit</td>
+                                <td>Nama Unit</td>
+                                <td>Kategori</td>
+                                <td>Photo</td>
+                                <td>Action</td>
+                            </tr>
+                            <tr>
+                                <td>KODE-345</td>
+                                <td>Ananza</td>
+                                <td>Mobil</td>
+                                <td><img src="https://picsum.photos/100" alt=""></td>
+                                <td><img src="assets/edit.png" alt=""><img src="assets/trash.png" alt=""></td>
+                            </tr>
+                          </table>
                     </div>
+
+                    
         </div>
         <!-- End of Content Wrapper -->
 
@@ -407,7 +361,4 @@
             </div>
         </div>
     </div>
-
-   
-
-    @endsection
+  @endsection

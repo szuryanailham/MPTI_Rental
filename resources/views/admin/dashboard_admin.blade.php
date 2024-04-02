@@ -1,6 +1,6 @@
 @extends('layouts.main')
     @section('container')
-    <!-- Page Wrapper -->
+<!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -407,7 +407,4 @@
             </div>
         </div>
     </div>
-
-   
-
-    @endsection
+  @endsection
