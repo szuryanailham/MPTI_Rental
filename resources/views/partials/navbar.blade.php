@@ -10,7 +10,7 @@
                   <a class="nav-link active" aria-current="page" href="j">Home</a>
                 </li>
                 <li class="nav-item me-5">
-                  <a class="nav-link" href="about.html">Profile</a>
+                  <a class="nav-link" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item me-5">
                   <a class="nav-link" href="testimony.html">Testimony</a>
