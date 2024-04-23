@@ -29,87 +29,90 @@
                 </a>
             </div>
         </div>
-    
 
-        <!-- PENYEWAAN START -->
+         {{-- FILL IN THE FORM  --}}
+        <form action="/order" method="POST" >
+          @csrf
+                <!-- PENYEWAAN START -->
+                <div class="row mt-5">
+                  <div class="col mx-auto text-center">
+                      <h4 style="text-decoration: underline;">Form Penyewaan</h4>
+                      <p class="title" style="color: #90A3BF; font-size: 15px;">Masukkan info penyewaan</p>
+                  </div>
+                </div>
+                <div class="row ">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nama</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Nama Lengkap"  >
+                      </div>
+                      <div class="mb-3">
+                        <label for="address" class="form-label">Alamat</label>
+                        <input type="text" name="address" class="form-control" id="address" placeholder="Alamat"  >
+                      </div>
+                      <div class="mb-3">
+                        <label for="phone-number" class="form-label">No. Handphone</label>
+                        <input type="text" name="phone" class="form-control" id="phone-number" placeholder="No. Handphone"  >
+                      </div>
+                      <div class="mb-3">
+                        <label for="unit" class="form-label">Unit</label>
+                        <input type="text" name="unit" class="form-control" id="unit" placeholder="Unit"  >
+                      </div>
+                </div>            
+            <!-- PENYEWAAN END -->
+    
+            <!-- PENJEMPUTAN START -->
             <div class="row mt-5">
                 <div class="col mx-auto text-center">
-                    <h4 style="text-decoration: underline;">Form Penyewaan</h4>
-                    <p class="title" style="color: #90A3BF; font-size: 15px;">Masukkan info penyewaan</p>
+                    <h4 style="text-decoration: underline;">Penjemputan</h4>
+                    <p class="title" style="color: #90A3BF; font-size: 15px;">Masukkan info penjemputan</p>
                 </div>
             </div>
-
             <div class="row ">
                 <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nama Lengkap"  >
+                    <label for="pickup-address" class="form-label">Lokasi</label>
+                    <input type="text" name="pickup" class="form-control" id="pickup-address" placeholder="Lokasi Penjemputan"  >
                   </div>
                   <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Alamat</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Alamat"  >
+                    <label for="start-time" class="form-label">Waktu</label>
+                    <input type="datetime-local" name="start-time" class="form-control" id="start-time" placeholder="Waktu Sewa"  >
                   </div>
                   <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">No. Handphone</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="No. Handphone"  >
+                    <label for="start-date" class="form-label">Tanggal</label>
+                    <input type="date" class="form-control" id="start-date" placeholder="Tanggal Sewa"  >
+                  </div>
+            </div>
+            <!-- PENJEMPUTAN END  -->
+    
+            <!-- PENGEMBALIAN START -->
+            <div class="row mt-5">
+                <div class="col mx-auto text-center">
+                    <h4 style="text-decoration: underline;">Pengembalian</h4>
+                    <p class="title" style="color: #90A3BF; font-size: 15px;">Masukkan info pengembalian</p>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="mb-3">
+                    <label for="retutn-address" class="form-label">Lokasi</label>
+                    <input type="text" name="return" class="form-control" id="retutn-address" placeholder="Lokasi Pengembalian"  >
                   </div>
                   <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">Unit</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Unit"  >
+                    <label for="end-time" class="form-label">Waktu</label>
+                    <input type="time" name="end-time" class="form-control" id="end-time" placeholder="Waktu Kumpul"  >
                   </div>
-            </div>            
-        <!-- PENYEWAAN END -->
-
-        <!-- PENJEMPUTAN START -->
-        <div class="row mt-5">
-            <div class="col mx-auto text-center">
-                <h4 style="text-decoration: underline;">Penjemputan</h4>
-                <p class="title" style="color: #90A3BF; font-size: 15px;">Masukkan info penjemputan</p>
+                  <div class="mb-3">
+                    <label for="end-date" class="form-label">Tanggal</label>
+                    <input type="date" name="end-date" class="form-control" id="end-date" placeholder="Tanggal Pengembalian"  >
+                  </div>
             </div>
-        </div>
-        <div class="row ">
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Lokasi</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Lokasi Penjemputan"  >
-              </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Waktu</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Waktu Kumpul"  >
-              </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Tanggal</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Tanggal Sewa"  >
-              </div>
-        </div>
-        <!-- PENJEMPUTAN END  -->
-
-        <!-- PENGEMBALIAN START -->
-        <div class="row mt-5">
-            <div class="col mx-auto text-center">
-                <h4 style="text-decoration: underline;">Pengembalian</h4>
-                <p class="title" style="color: #90A3BF; font-size: 15px;">Masukkan info pengembalian</p>
+            <!-- PENGEMBALIAN END  -->
+    
+            <div class="row mt-5 justify-content-center">
+                <div class="col-4 text-center">
+                    <button type="button" class="btn btn-dark">Submit</button>
+                </div>
             </div>
-        </div>
-        <div class="row ">
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Lokasi</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Lokasi Pengembalian"  >
-              </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Waktu</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Waktu Kumpul"  >
-              </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Tanggal</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Tanggal Pengembalian"  >
-              </div>
-        </div>
-        <!-- PENGEMBALIAN END  -->
+        </form>
 
-        <div class="row mt-5 justify-content-center">
-            <div class="col-4 text-center">
-                <button type="button" class="btn btn-dark">Submit</button>
-            </div>
-        </div>
     <!-- FORM ORDER END -->
 </div>
 

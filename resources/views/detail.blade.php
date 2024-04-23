@@ -6,8 +6,8 @@
         <img src="assets/unit picture.png" alt="unit picture" class="img-fluid " >
       </div>
         <div class="col-12 col-md-5">
-          <h3 class="title" style="font-size: 40px; font-weight: 700;">Toyota Innova</h3>
-          <p class="desc">NISMO has become the embodiment of Nissan's outstanding performance, inspired by the most unforgiving proving ground, the "race track".</p>
+          <h3 class="title" style="font-size: 40px; font-weight: 700;">{{$unit->name}}</h3>
+          <p class="desc">{!!$unit->description!!}</p>
           <div class="spesification row" style="font-weight: 700; font-size: 18px;">
             <div class="col g-1" style="color: #90A3BF;">
               Steering
@@ -19,7 +19,7 @@
               Capacity
             </div>
             <div class="col g-1">
-                7 Person
+                {{$unit->capacity}} Person
               </div>
           </div>
           <div class="row  mt-5 ">
