@@ -43,105 +43,43 @@
 
     <!-- CARD UNIT START -->
     <div class="row mt-2 p-5">
-      <div class="col-sm-4 g-4">
-        <div class="card">
-          <div class="mobil justify-content-between d-flex p-2" style="font-size: 22px; line-height: 26px;">
-            <div>unit</div>
-            <div>800K</div>
-          </div>
-          <div class="card-body mx-auto">
-            <a href="/detail">
-              <img src="https://picsum.photos/200" class="img-thumbnail" alt="gambar unit mobil">
-            </a>
-              <div class="container">
-                <div class="row align-items-start mt-3" style="font-size: 15px;">
-                  <div class="col">
-                    <img src="/assets/clock.png" alt="clock" >
-                    <p>Jam</p>
-                  </div>
-                  <div class="col">
-                    <img src="/assets/gas_station.png" alt="clock">
-                    <p>Orang</p>
-                  </div>
-                  <div class="col">
-                    <img src="/assets/user_unit.png" alt="clock">
-                    <p>Full Bensin</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="d-block mx-auto p-2 mb-2">
-              <a href="" class="btn btn-dark me-5">Sewa</a>
-              <a href="detail.html" class="btn btn-light ">Detail</a>
-            </div>
-          </div>
-        </div>
+      
+      @foreach ($units as $unit)
         <div class="col-sm-4 g-4">
           <div class="card">
-            <div class="justify-content-between d-flex p-2" style="font-size: 24px">
-              <div>unit</div>
-              <div>800K</div>
+            <div class="mobil justify-content-between d-flex p-2" style="font-size: 22px; line-height: 26px;">
+              <div>{{$unit->name}}</div>
+              <div>{{$unit->price}}K</div>
             </div>
             <div class="card-body mx-auto">
-              <a href="detail.html">
+              <a href="/detail">
                 <img src="https://picsum.photos/200" class="img-thumbnail" alt="gambar unit mobil">
               </a>
                 <div class="container">
                   <div class="row align-items-start mt-3" style="font-size: 15px;">
                     <div class="col">
-                      <img src="assets/clock.png" alt="clock" >
+                      <img src="/assets/clock.png" alt="clock" >
                       <p>Jam</p>
                     </div>
                     <div class="col">
-                      <img src="assets/gas_station.png" alt="clock">
-                      <p>Orang</p>
+                      <img src="/assets/gas_station.png" alt="clock">
+                      <p>{{$unit->capacity}} Orang</p>
                     </div>
                     <div class="col">
-                      <img src="assets/user_unit.png" alt="clock">
+                      <img src="/assets/user_unit.png" alt="clock">
                       <p>Full Bensin</p>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="d-block mx-auto p-2 mb-2">
-                <a href="/paket" class="btn btn-dark me-5">Sewa</a>
-                <a href="/paket" class="btn btn-light ">Detail</a>
-              </div>
+            </div>
+            <div class="d-block mx-auto p-2 mb-2">
+              <a href="" class="btn btn-dark me-5">Sewa</a>
+              <a href="/detail/{{$unit->slug}}" class="btn btn-light ">Detail</a>
             </div>
           </div>
-          <div class="col-sm-4 g-4">
-            <div class="card">
-              <div class="justify-content-between d-flex p-2" style="font-size: 24px">
-                <div>unit</div>
-                <div>800K</div>
-              </div>
-              <div class="card-body mx-auto">
-                <a href="detail.html">
-                  <img src="https://picsum.photos/200" class="img-thumbnail" alt="gambar unit mobil">
-                </a>
-                  <div class="container">
-                    <div class="row align-items-start mt-3" style="font-size: 15px;">
-                      <div class="col">
-                        <img src="assets/clock.png" alt="clock" >
-                        <p>Jam</p>
-                      </div>
-                      <div class="col">
-                        <img src="assets/gas_station.png" alt="clock">
-                        <p>Orang</p>
-                      </div>
-                      <div class="col">
-                        <img src="assets/user_unit.png" alt="clock">
-                        <p>Full Bensin</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-block mx-auto p-2 mb-2">
-                  <a href="/paket" class="btn btn-dark me-5">Sewa</a>
-                  <a href="/paket" class="btn btn-light ">Detail</a>
-                </div>
-              </div>
-            </div>
+        </div>
+      @endforeach
+
     </div>
     <!-- CARD UNIT END -->
 
