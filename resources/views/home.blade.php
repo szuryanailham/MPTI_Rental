@@ -45,7 +45,7 @@
     <div class="row mt-2 p-5">
       
       @foreach ($units as $unit)
-        <div class="col-sm-4 g-4">
+        <div class="col-sm-6 g-5">
           <div class="card">
             <div class="mobil justify-content-between d-flex p-2" style="font-size: 22px; line-height: 26px;">
               <div>{{$unit->name}}</div>
@@ -62,18 +62,17 @@
                       <p>Jam</p>
                     </div>
                     <div class="col">
-                      <img src="/assets/gas_station.png" alt="clock">
+                      <img src="/assets/user_unit.png" alt="clock">
                       <p>{{$unit->capacity}} Orang</p>
                     </div>
                     <div class="col">
-                      <img src="/assets/user_unit.png" alt="clock">
+                      <img src="/assets/gas_station.png" alt="clock">
                       <p>Full Bensin</p>
                     </div>
                   </div>
                 </div>
             </div>
             <div class="d-block mx-auto p-2 mb-2">
-              <a href="" class="btn btn-dark me-5">Sewa</a>
               <a href="/detail/{{$unit->slug}}" class="btn btn-light ">Detail</a>
             </div>
           </div>
@@ -91,7 +90,7 @@
             <p>Cahaya Waskitha Transport</p>
           </div>
           <div class="col-lg-12 mb-5">
-            <a href="https://maps.app.goo.gl/HsnJf1b2Ks7Stm4V8" target="_blank" style="font-size: 10px; text-decoration: none;">Jl. Nogosari No.2, Nogosari I, Wukirsari, Kec. Imogiri, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55782</a>
+            <a href="https://maps.app.goo.gl/HsnJf1b2Ks7Stm4V8" target="_blank" style="font-size: 12px; text-decoration: none;">Jl. Nogosari No.2, Nogosari I, Wukirsari, Kec. Imogiri, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55782</a>
           </div>
           <div class="row justify-content-center">
             <div class="col-10 d-flex justify-content-center ">
