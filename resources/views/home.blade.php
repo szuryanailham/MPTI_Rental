@@ -118,7 +118,7 @@
             
           </div>
           <div class="col-lg-12 mt-5 text-end">
-            <a href="login_admin.html" style="text-decoration: none; color: black;">Login as Admin</a>
+            <a href="/login" style="text-decoration: none; color: black;">Login as Admin</a>
           </div>
           <div class="col-lg-12 mt-2">
             <p>&copy; 2024 CahayaWaskitha. All rights reserved.</p>
