@@ -90,6 +90,11 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </footer>
     <!-- FOOTER END -->
+=======
+    <!-- CONTENT END -->
+    
+>>>>>>> 7d6d9ac582a6dbc418c14802caa08cabbb92cb94
     @endsection

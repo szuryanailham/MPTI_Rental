@@ -70,7 +70,7 @@
                       </div>
                       <div class="mb-3">
                         <label for="unit" class="form-label">Unit</label>
-                        <input type="text" name="unit" class="form-control" id="unit" placeholder="Unit"  >
+                        <input type="text" name="unit" class="form-control" id="unit" placeholder="Unit"  value="{{$unit->name}}" disabled>
                       </div>
                 </div>            
             <!-- PENYEWAAN END -->
@@ -131,6 +131,7 @@
     <!-- FORM ORDER END -->
 </div>
 
+<<<<<<< HEAD
     <!-- FOOTER START -->
     <footer class="foot bg-light text-black text-center pt-4 pb-4">
         <div class="container">
@@ -176,4 +177,7 @@
         </div>
       </footer>
       <!-- FOOTER END -->
+=======
+
+>>>>>>> 7d6d9ac582a6dbc418c14802caa08cabbb92cb94
       @endsection

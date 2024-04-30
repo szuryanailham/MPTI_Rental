@@ -1,7 +1,6 @@
 @extends('layouts.dashboard')
     @section('container')
 
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 

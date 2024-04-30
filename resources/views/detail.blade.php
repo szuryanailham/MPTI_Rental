@@ -24,7 +24,7 @@
           </div>
           <div class="row  mt-5 ">
             <div class="col-12 d-flex justify-content-end">
-                <a href="order.html" target="_blank" class="btn btn-dark">Rent Now</a>
+                <a href="/order" target="_blank" class="btn btn-dark">Rent Now</a>
               </div>
           </div>
           
@@ -46,6 +46,7 @@
       <!-- PICTURE DETAIL END -->
     <!-- UNIT DETAIL END -->
 
+<<<<<<< HEAD
     <!-- FOOTER START -->
     <footer class="foot bg-light text-black text-center pt-4 pb-4">
       <div class="container">
@@ -91,4 +92,6 @@
       </div>
     </footer>
     <!-- FOOTER END -->
+=======
+>>>>>>> 7d6d9ac582a6dbc418c14802caa08cabbb92cb94
     @endsection
