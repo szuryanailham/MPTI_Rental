@@ -1,3 +1,4 @@
+{{-- FOOTER --}}
 <!-- FOOTER START -->
 <footer class="foot bg-light text-black text-center pt-4 pb-4">
     <div class="container">
