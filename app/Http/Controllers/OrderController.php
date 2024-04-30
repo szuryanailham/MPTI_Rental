@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Models\Unit;
 
 class OrderController extends Controller
 {
@@ -37,5 +38,11 @@ class OrderController extends Controller
         return redirect('/order')->with('success', 'Transaction successful!');
     }
 
+    public function unitValue(Unit $unit)
+    {
+        return view('order', [
+            'unit' => $unit
+        ]);
+    }
 
 }
