@@ -31,7 +31,7 @@ Route::post('/order', [OrderController::class, 'store']);
 
 Route::get('/order/{unit:slug}', [OrderController::class, 'unitValue']);
 
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'index']);
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 
