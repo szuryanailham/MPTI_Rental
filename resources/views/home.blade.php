@@ -73,6 +73,10 @@
                 </div>
             </div>
             <div class="d-block mx-auto p-2 mb-2">
+<<<<<<< HEAD
+=======
+              <a href="/order/{{$unit->slug}}" class="btn btn-dark me-5">Sewa</a>
+>>>>>>> 7d6d9ac582a6dbc418c14802caa08cabbb92cb94
               <a href="/detail/{{$unit->slug}}" class="btn btn-light ">Detail</a>
             </div>
           </div>
@@ -82,6 +86,7 @@
     </div>
     <!-- CARD UNIT END -->
 
+<<<<<<< HEAD
     <!-- FOOTER START -->
     <footer class="foot bg-light text-black text-center pt-4 pb-4">
       <div class="container">
@@ -129,6 +134,8 @@
     <!-- FOOTER END -->
 
 
+=======
+>>>>>>> 7d6d9ac582a6dbc418c14802caa08cabbb92cb94
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     @endsection

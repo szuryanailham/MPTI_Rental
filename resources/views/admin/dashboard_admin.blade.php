@@ -26,7 +26,7 @@
 
             <!-- Nav Item - All Unit -->
             <li class="nav-item">
-                <a class="nav-link" href="all_unit.html">
+                <a class="nav-link" href="/all_unit">
                     <i> 
                         <img src="assets/car icon.png" alt=""> 
                     </i>
@@ -36,7 +36,7 @@
 
             <!-- Nav Item - Transaction -->
             <li class="nav-item">
-                <a class="nav-link" href="transaction.html" >
+                <a class="nav-link" href="/transaction" >
                     <i>
                         <img src="assets/icon_transaction.png" alt="">
                     </i>
@@ -46,7 +46,7 @@
 
             <!-- Nav Item - Feedback -->
             <li class="nav-item">
-                <a class="nav-link " href="feedback.html">
+                <a class="nav-link " href="/feedback">
                     <i>
                         <img src="assets/feedback icon.png" alt="">
                     </i>
@@ -55,13 +55,14 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
+                        <a class="collapse-item" href="/login">Login</a>
                         <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <a class="collapse-item" href="/forgot-password">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
+                        {{-- INI LINK APA --}}
+                        <a class="collapse-item" href="404.html">404 Page</a> 
+                        <a class="collapse-item" href="/blank">Blank Page</a>
                     </div>
                 </div>
             </li>
@@ -74,7 +75,7 @@
 
             <!-- Nav Item - Add Unit -->
             <li class="nav-item">
-                <a class="nav-link" href="add_unit.html">
+                <a class="nav-link" href="/add-unit">
                     <i>
                         <img src="assets/add unit icon.png" alt="">
                     </i>
@@ -83,7 +84,7 @@
 
             <!-- Nav Item - Promo -->
             <li class="nav-item">
-                <a class="nav-link" href="add_promo.html">
+                <a class="nav-link" href="/add-promo">
                     <i>
                         <img src="assets/promo icon.png" alt="">
                     </i>

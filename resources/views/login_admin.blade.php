@@ -8,25 +8,32 @@
                 </div>
             </div>
             {{-- FORM FOR LOGIN ADMIN --}}
-            <form class="mt-5" method="POST">
+            <form class="mt-5" method="POST" action="/login">
                 @csrf
                 <div class="col text-center">
                     <p class="desc" style="color: black; font-weight: 700; font-size: 17px;">Login as Admin</p>
                 </div>
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
-                  <input type="username" name="username" class="form-control @error('username') is-invalid @enderror" id="username" aria-describedby="emailHelp">
+                  <input type="username" name="username" class="form-control @error('username') is-invalid @enderror" id="username" required autofocus value="{{old('username')}}>
+                    @error('username')
+                        <div class="invalid-feedback">
+                        {{$message}}
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                   <label for="password" class="form-label @error('password') is-invalid @enderror">Password</label>
-                  <input type="password" name="password" class="form-control" id="password">
+                  <input type="password" name="password" class="form-control" id="password" required>
+                    @error('password')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                    @enderror
                 </div>
                 <div class="row mt-5 justify-content-center">
                     <div class="col-4 text-center">
-                        {{-- <a href="admin/index.html" target="_blank"> --}}
-                            <button type="submit" class="btn btn-dark">Submit</button>
-                        {{-- </a> --}}
-                        
+                        <button type="submit" class="btn btn-dark">Submit</button>    
                     </div>
                 </div>
               </form>
@@ -34,6 +41,7 @@
         
     <!-- FORM LOGIN END -->
 
+<<<<<<< HEAD
     <!-- FOOTER START -->
         <footer class="foot bg-light text-black text-center pt-4 pb-4">
             <div class="container">
@@ -76,4 +84,6 @@
             </div>
         </footer>
       <!-- FOOTER END -->
+=======
+>>>>>>> 7d6d9ac582a6dbc418c14802caa08cabbb92cb94
     @endsection
