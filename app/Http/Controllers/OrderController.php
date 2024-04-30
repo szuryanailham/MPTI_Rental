@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -30,6 +31,8 @@ class OrderController extends Controller
             'end-time' => 'required',
             'end-date' => 'required',
         ]);
+
+        Transaction::create($validatedData);
 
         return redirect('/order')->with('success', 'Transaction successful!');
     }

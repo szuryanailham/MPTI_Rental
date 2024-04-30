@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,9 @@ Route::get('/order', function () {
     return view('order');
 });
 
-Route::get('/login', function () {
-    return view('login_admin');
-});
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/profile', function () {
     return view('profile');
@@ -63,7 +64,7 @@ Route::get('/charts', function () {
     return view('admin/charts');
 });
 
-Route::get('/dashboard-admin', function () {
+Route::get('/dashboard', function () {
     return view('admin/dashboard_admin');
 });
 
