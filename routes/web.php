@@ -53,7 +53,7 @@ Route::get('/add-unit', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.dashboard_admin');
+    return view('dashboard.index');
 });
 Route::get('/all-unit', [AdminController::class, 'index']);
 
