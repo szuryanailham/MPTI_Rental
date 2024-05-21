@@ -22,5 +22,4 @@ class HomeController extends Controller
             'unit'  => $unit
         ]);
     }
-
 }
