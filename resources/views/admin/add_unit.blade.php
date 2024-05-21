@@ -1,10 +1,5 @@
 @extends('layouts.main')
     @section('container')
-
-     {{-- Trix Editor --}}
-     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
-     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -315,66 +310,60 @@
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-plus fa-sm text-white-50"></i>  Add Unit</a>
                     </div>
-                    {{-- FORM ADD UNIT --}}
-                    <form action="/add-unit" method="POST">
-
-                        <div class="text-dark">
-                            <label for="unit">Nama unit</label>
-                            <input type="text" name="unit" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required autofocus>
-                        </div><br>
-                        <div class="text-dark">
-                            <label for="category">Kategori</label>
-                            <div class="input-group mb-3">
-                                <select id="category_select" name="category">
-                                    <option value="Mobil">Mobil</option>
-                                    <option value="Motor">Motor</option>
-                                </select>
-                              </div>
+                    <div class="text-dark">
+                        <p>Nama Unit</p>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div><br>
+                    <div class="text-dark">
+                        <p>Kategori</p>
+                        <div class="input-group mb-3">
+                            <select id="kategori_select">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                          </div>
+                    </div>
+                    <div class="text-dark">
+                        <p>Harga</p>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"><br>
+                    </div>
+                    <div class="container">
+                        <div class="select-wrapper text-dark ">
+                            <label for="select1">Jenis</label>
+                            <select id="select1">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
                         </div>
-                        <div class="text-dark">
-                            <label for="price">Harga</label>
-                            <input type="number" name="price" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"><br>
+                        <div class="select-wrapper text-dark">
+                            <label for="select2">Kendali</label>
+                            <select id="select2">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
                         </div>
-                        <div class="container">
-                            <div class="select-wrapper text-dark ">
-                                <label for="select1">Jenis</label>
-                                <select id="select1">
-                                    <option value="option1">Option 1</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
-                                </select>
-                            </div>
-                            <div class="select-wrapper text-dark">
-                                <label for="select2">Kendali</label>
-                                <select id="select2">
-                                    <option value="option1">Option 1</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
-                                </select>
-                            </div>
-                            <div class="select-wrapper text-dark">
-                                <label for="select3">Gosaline</label>
-                                <select id="select3">
-                                    <option value="option1">Option 1</option>
-                                    <option value="option2">Option 2</option>
-                                    <option value="option3">Option 3</option>
-                                </select>
-                            </div>
-                        </div><br>
-                        <div class="text-dark">
-                            <label for="image">Upload gambar</label>
-                            <input type="file" name="image" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"><br>
-                        </div><br>
-                        <div class="text-dark">
-                            
-                            <input id="detail" type="hidden" name="detail">
-                            <trix-editor input="detail"></trix-editor>
-                        </div><br>
-                        <button type="submit" class="btn btn-dark" style="display: block; margin: 0 auto;">Submit</button>
-
-                    </form>
+                        <div class="select-wrapper text-dark">
+                            <label for="select3">Gosaline</label>
+                            <select id="select3">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                        </div>
+                    </div><br>
+                    <div class="text-dark">
+                        <p>Upload Image</p>
+                    </div><br>
+                    <div class="text-dark">
+                        <p>Penjelasan</p>
+                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                    </div><br>
+                    <button type="button" class="btn btn-dark" style="display: block; margin: 0 auto;">Submit</button>
                     
-                                
+                    
 
         </div>
         <!-- End of Content Wrapper -->

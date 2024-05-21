@@ -7,13 +7,13 @@
             <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent" >
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item me-5">
-                  <a class="nav-link {{Request::is('/') ? 'active' : ''}}" aria-current="page" href="/">Home</a>
+                  <a class="nav-link {{Request::is('home') ? 'active' : ''}}" aria-current="page" href="j">Home</a>
                 </li>
                 <li class="nav-item me-5">
                   <a class="nav-link {{Request::is('profile') ? 'active' : ''}}" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item me-5">
-                  <a class="nav-link {{Request::is('testimony') ? 'active' : ''}}" href="/testimony">Testimony</a>
+                  <a class="nav-link {{Request::is('testimony') ? 'active' : ''}}" href="testimony.html">Testimony</a>
                 </li>
                 <li class="nav-item">
                   <img src="assets/Vector.png" alt="">
