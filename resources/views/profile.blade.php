@@ -90,4 +90,6 @@
           </div>
         </div>
       </div>
+    </footer>
+    <!-- FOOTER END -->
     @endsection
