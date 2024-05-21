@@ -6,77 +6,63 @@
       <ul class="navbar-nav">
         <li>
           {{-- head line --}}
-          <div class="small fw-bold text-uppercase px-3">
-            CORE
+          <div class="small fw-bold text-uppercase px-3 ">
+            <img src="/assets/logo_cw.png" alt="CW">
           </div>
         </li>
-        {{-- home component --}}
+        {{-- dashboard --}}
         <li>
           <a href="/news" class="nav-link px-3 active">
-            <span class="me-2"><i class="bi bi-house-door-fill"></i></span>
-            <span>Home</span>
+            <span class="me-2"><i><img src="assets/chart icon.png" alt=""></i></span>
+            <span>Dashboard</span>
           </a>
         </li>
-        {{-- news page --}}
+        {{-- all unit --}}
         <li>
           <a href="/dashboard" class="nav-link px-3 active">
-            <span class="me-2"><i class="bi bi-newspaper"></i></i></span>
-            <span> All News</span>
+            <span class="me-2"><i><img src="assets/car icon.png" alt=""></i></span>
+            <span> All Unit</span>
           </a>
         </li>
        
-        {{-- Category --}}
+        {{-- transaction --}}
         <li>
           <a href="/dashboard/categories" class="nav-link px-3 active">
-            <span class="me-2"><i class="bi bi-bookmarks"></i></span>
-            <span>Category</span>
+            <span class="me-2"><i><img src="assets/icon_transaction.png" alt=""></i></span>
+            <span>Transaction</span>
           </a>
         </li>
-        <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
-         {{-- features setttings --}}
+
+        {{-- feedback --}}
         <li>
-         
+          <a href="/dashboard/categories" class="nav-link px-3 active">
+            <span class="me-2"><i><img src="assets/feedback icon.png" alt=""></i></span>
+            <span>Feedback</span>
+          </a>
+        </li>
+
+        <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
+
+        <li>
           <div class="small fw-bold text-uppercase px-3 mb-3">
-            News Settings
+            OTHERS
           </div>
         </li>
 
-         {{-- your news --}}
-         <li>
-          <a href="/dashboard/newsAuthor/" class="nav-link px-3 active">
-            <span class="me-2"><i class="bi bi-journals"></i></span>
-            <span>Your News</span>
-          </a>
-        </li>
-        
-        {{-- write news --}}
+        {{-- add unit --}}
         <li>
-          <a href="/dashboard/addNews" class="nav-link px-3">
-            <span class="me-2"><i class="bi bi-pencil-square"></i></span>
-            <span>add news</span>
+          <a href="/dashboard/categories" class="nav-link px-3 active">
+            <span class="me-2"><i><img src="assets/add unit icon.png" alt=""></i></span>
+            <span>Add Unit</span>
           </a>
         </li>
-         {{-- administrator --}}
-         @can('admin')
-         <li>
-          <a href="/dashboard/admin" class="nav-link px-3">
-            <span class="me-2"><i class="bi bi-card-list"></i></span>
-            <span>Administrasi</span>
-          </a>
-        </li>
-        
+
+        {{-- promo --}}
         <li>
-          <a href="/dashboard/category" class="nav-link px-3">
-            <span class="me-2"><i class="bi bi-bookmark-plus"></i></span>
-            <span>Settings Category</span>
+          <a href="/dashboard/categories" class="nav-link px-3 active">
+            <span class="me-2"><i><img src="assets/promo icon.png" alt=""></i></span>
+            <span>Promo</span>
           </a>
-        </li>
-         @endcan
-        <li class="my-4"><hr class="dropdown-divider bg-light" /></li>
-        <li>
-          <div class="text-muted small fw-bold text-uppercase px-3 mb-3">
-            Addons
-          </div>
         </li>
       </ul>
     </nav>
@@ -88,7 +74,7 @@
      <div style="width: 100px; bottom:0" class="profile-section d-flex justify-content-between">
       <i class="bi bi-person-circle fs-3"></i>
          <div class="profile-name mt-2 ">
-             <span class="fw-bold p-1">asas</span>
+             <span class="fw-bold p-1">Account</span>
          </div>
      </div>
     {{-- END CONTAIN SIDEBAR SECTION --}}
