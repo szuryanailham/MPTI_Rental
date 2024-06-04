@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Testimony;
 use App\Models\Transaction;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,20 +18,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+       
+         User::create([
+            'username'       => 'bayu',
+            'name'           => 'Bayu Waskitha',
+            'email'          => 'Bayuwaskitho@gmail.com',
+            'password'       => bcrypt('bayu123'),
+            'email_verified_at' => now()
+        ]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
-        User::create([
-            'username' => 'admin',
-            'name' => 'Yearina Mustika',
-            'email' => 'yearina.mustika@gmail.com',
-            'password' => bcrypt('admin'),
-            'email_verified_at' => now()
-        ]);
 
         Unit::factory(20)->create(); 
 
