@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+}
+
+.select-wrapper {
+    margin: 0 10px;
+}
+
+.select-wrapper select, .capacity{
+    width: 150px;
+}
+
+select, .capacity{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#kategori_select {
+    width: 100%;
+}

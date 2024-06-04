@@ -1,0 +1,13 @@
+.sidebar-custom{ 
+    background-color: black !important;
+} 
+
+@media (max-width: 767px) {
+    .sidebar-custom {
+        display: block;
+    }
+    .sidebar-custom .active {
+        display: block !important;
+    }
+
+}

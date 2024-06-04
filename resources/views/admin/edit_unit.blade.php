@@ -3,18 +3,19 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4 text-dark">
-                        <h1 class="h3 mb-0 text-dark font-weight-bold">Add Unit</h1>
+                        <h1 class="h3 mb-0 text-dark font-weight-bold">Edit Unit</h1>
                     </div>
-                    {{-- FORM ADD UNIT --}}
-                    <form action="/dashboard-units" method="POST">
+                    {{-- FORM EDIT UNIT --}}
+                    <form action="/dashboard-units/{{$unit->slug}}" method="POST" enctype="multipart/form-data">
+                        @method('put')
                         @csrf
                         <div class="text-dark">
                             <label for="name" class="form-label">Nama unit</label>
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{old('name')}}" required autofocus>
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{old('name', $unit->name)}}" required autofocus>
                         </div><br>
                         <div class="text-dark">
                             <label for="slug" class="form-label">Slug</label>
-                            <input name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" value="{{old('slug')}}" required>
+                            <input name="slug" type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" value="{{old('slug', $unit->slug)}}" required>
                             @error('slug')
                                 <div class="invalid-feedback">
                                     {{$message}}
@@ -25,7 +26,7 @@
                             <label for="category_id" class="form-label mr-2">Kategori</label>
                             <select id="category" name="category_id" class="form-select @error('category_id') is-invalid @enderror" required>
                                 @foreach ($categories as $category)
-                                    @if (old('category_id') == $category->id)
+                                    @if (old('category_id', $unit->category) == $category->id)
                                         <option value="{{$category->id}}" selected> {{$category->name}} </option>
                                     @else
                                         <option value="{{$category->id}}"> {{$category->name}} </option>
@@ -40,7 +41,7 @@
                         </div><br>
                         <div class="text-dark">
                             <label for="price" class="form-label">Harga</label>
-                            <input type="number" name="price" class="form-control @error('harga') is-invalid @enderror" value="{{old('price')}}" required><br>
+                            <input type="number" name="price" class="form-control @error('harga') is-invalid @enderror" value="{{old('price', $unit->price)}}" required><br>
                             @error('price')
                                 <div class="invalid-feedback">
                                     {{$message}}
@@ -66,7 +67,7 @@
                             </div>
                             <div class="d-flex text-dark align-items-center">
                                 <label for="capacity" class="form-label mr-2 @error('capacity') is-invalid @enderror">Capacity</label>
-                                <input type="number" name="capacity" class="form-control capacity" value="{{old('capacity')}}" required>
+                                <input type="number" name="capacity" class="form-control capacity" value="{{old('capacity', $unit->capacity)}}" required>
                                 @error('capacity')
                                 <div class="invalid-feedback">
                                     {{$message}}
@@ -85,16 +86,16 @@
                         </div> --}}
                         <div class="text-dark">
                             <label for="description" class="form-label @error('description') is-invalid @enderror">Penjelasan</label>
-                            <textarea name="description" class="form-control" required>{{old('description')}}</textarea>
+                            <textarea name="description" class="form-control" required>{{old('description', $unit->description)}}</textarea>
                             @error('description')
                                 <div class="invalid-feedback">
                                     {{$message}}
                                 </div>  
                             @enderror
                         </div><br>
-                        <button type="submit" class="btn btn-dark mb-4" style="display: block; margin: 0 auto;">Submit</button>
+                        <button type="submit" class="btn btn-dark mb-4" style="display: block; margin: 0 auto;">Update</button>
                     </form>   
-                    {{-- END FORM ADD UNIT --}}
+                    {{-- END FORM EDIT UNIT --}}
 
                     
         <script>
