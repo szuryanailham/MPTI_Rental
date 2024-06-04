@@ -27,7 +27,7 @@ class TransactionFactory extends Factory
             'end_time' => $this->faker-> time(),
             'duration' => mt_rand(1, 30),
             'total' => $this->faker->numberBetween(100, 300),
-            'status' => $this->faker->word(),
+            'status' => $this->faker->randomElement(['open', 'close']),
             'unit_id' => mt_rand(1, 20)
         ];
     }
