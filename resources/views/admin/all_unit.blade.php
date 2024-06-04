@@ -312,7 +312,7 @@
                     </div>
                     <div >
                         <!-- table table-borderless -->
-                        <table class="table table-borderless text-dark font-weight-bold" border="1">
+                        <table class="table table-borderless text-dark font-weight-bold">
                             <tr>
                                 <td>ID Unit</td>
                                 <td>Nama Unit</td>
@@ -320,16 +320,13 @@
                                 <td>Photo</td>
                                 <td>Action</td>
                             </tr>
-                            @foreach ($units as $unit)
                             <tr>
-                                <td>{{$unit->id}}</td>
-                                <td>{{$unit->name}}</td>
-                                <td>{{$unit->category->name}}</td>
+                                <td>KODE-345</td>
+                                <td>Ananza</td>
+                                <td>Mobil</td>
                                 <td><img src="https://picsum.photos/100" alt=""></td>
                                 <td><img src="assets/edit.png" alt=""><img src="assets/trash.png" alt=""></td>
                             </tr>
-                            @endforeach
-                            
                           </table>
                     </div>
 

@@ -16,19 +16,18 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-       $credentials = $request->validate([
-        'email' => 'required|email:rfc,dns',
-        'password' => 'required'
-    ]);
-    if (Auth::attempt($credentials)) {
-        // apabila Session berhasil maka simpan dan hubungkan
-        $request->session()->regenerate();
-        return redirect()->intended('/dashboard');
-    }
-        // APABILA AUTHENTICATION ......
-        return back()->with('loginError','Login failed !');
-    }
+        $credentials = $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
 
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
+        }
+
+        return back()->with('loginError', 'Login failed!');
+    }
 
     public function logout(Request $request): RedirectResponse
     {
