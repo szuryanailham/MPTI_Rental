@@ -36,26 +36,49 @@
                                             </thead>
                                             <tbody>
                                                 <!-- Data transaksi pemesanan akan ditampilkan di sini -->
-                                                @foreach ($transactions as $transaction)
+                        
                                                     <tr>
                                                         <td>{{$transaction->id}}</td>
                                                         <td><img src="gambar_unit.jpg" alt="Gambar Unit" style="width: 100px;"></td>
-                                                        <td>{{ optional($transaction->unit)->name }}
+                                                        <td>
+                                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{old('name', optional($transaction->unit)->name )}}" required autofocus>
+                                                            {{ optional($transaction->unit)->name }}
                                                         </td>
                                                         <td>{{ optional(optional($transaction->unit)->category)->name }}</td>
-                                                        <td>{{$transaction->name}}</td>
-                                                        <td>{{$transaction->phone_number}}</td>
-                                                        <td>{{$transaction->address}}</td>
-                                                        <td>{{$transaction->total}}</td>
-                                                        <td>{{$transaction->start_date}}</td>
-                                                        <td>{{$transaction->end_date}}</td>
-                                                        <td>{{$transaction->pickup_address}}</td>
+                                                        <td>
+                                                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" value="{{old('name', $transaction->name )}}" required autofocus>
+                                                            {{$transaction->name}}
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" value="{{old('phone_number', $transaction->phone_number )}}" required autofocus>
+                                                            {{$transaction->phone_number}}
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" id="address" value="{{old('address', $transaction->address )}}" required autofocus>
+                                                            {{$transaction->address}}
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="total" class="form-control @error('total') is-invalid @enderror" id="total" value="{{old('total', $transaction->total )}}" required autofocus>
+                                                            {{$transaction->total}}
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="start_date" class="form-control @error('start_date') is-invalid @enderror" id="start_date" value="{{old('start_date', $transaction->start_date )}}" required autofocus>
+                                                            {{$transaction->start_date}}
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="end_date" class="form-control @error('end_date') is-invalid @enderror" id="end_date" value="{{old('end_date', $transaction->end_date )}}" required autofocus>
+                                                            {{$transaction->end_date}}
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="pickup_address" class="form-control @error('pickup_address') is-invalid @enderror" id="pickup_address" value="{{old('pickup_address', $transaction->pickup_address )}}" required autofocus>
+                                                            {{$transaction->pickup_address}}
+                                                        </td>
                                                         <td>
                                                             <button class="btn btn-primary btn-sm">Edit</button>
                                                             <button class="btn btn-danger btn-sm">Delete</button>
                                                         </td>
                                                     </tr>
-                                                @endforeach
+                                            
                                                 
                                             </tbody>
                                         </table>

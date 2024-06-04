@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TestimonyController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UnitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,25 +32,29 @@ Route::get('/order', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index']);
-
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/profile', function () {
     return view('profile');
 });
 
+Route::get('/testimony', [TestimonyController::class, 'index']);
+Route::post('/testimony', [TestimonyController::class, 'store']);
+
 // Admin
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
 Route::get('/add-promo', function () {
     return view('admin/add_promo');
 });
 
-Route::get('/add-unit', function () {
-    return view('admin/add_unit');
-});
 
-Route::get('/all-unit', function () {
-    return view('admin/all_unit');
-});
+Route::resource('/dashboard-units', UnitController::class)->parameters([
+    'dashboard-units' => 'unit'
+]);
+Route::get('/add-unit/checkSlug', [UnitController::class, 'checkSlug']);
+
 
 Route::get('/blank', function () {
     return view('admin/blank');
@@ -62,10 +70,6 @@ Route::get('/cards', function () {
 
 Route::get('/charts', function () {
     return view('admin/charts');
-});
-
-Route::get('/dashboard', function () {
-    return view('admin/dashboard_admin');
 });
 
 Route::get('/feedback', function () {
@@ -84,9 +88,7 @@ Route::get('/tables-admin', function () {
     return view('admin/tables_admin');
 });
 
-Route::get('/transaction', function () {
-    return view('admin/transaction');
-});
+Route::get('/transaction', [TransactionController::class, 'index']);
 
 Route::get('/utilities-animation', function () {
     return view('admin/utilities-animation');
