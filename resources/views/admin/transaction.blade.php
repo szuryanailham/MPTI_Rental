@@ -31,6 +31,7 @@
                                                     <th>Tanggal Mulai</th>
                                                     <th>Tanggal Akhir</th>
                                                     <th>Lokasi Awal Peminjaman</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -39,7 +40,19 @@
                                                 @foreach ($transactions as $transaction)
                                                     <tr>
                                                         <td>{{$transaction->id}}</td>
-                                                        <td><img src="gambar_unit.jpg" alt="Gambar Unit" style="width: 100px;"></td>
+                                                        <td>
+                                                            @if ($transaction->unit->image)
+                                                                <img src="{{asset('storage/'. $unit->image)}}" style="width: 100px;" alt="gambar unit">            
+                                                            @else
+                                                                @if ($transaction->unit->category->name == 'car' || $transaction->unit->category->name == 'Car') 
+                                                                    <img src="{{asset('assets/car.png')}}" alt="Gambar Unit" style="width: 100px;"> 
+                                                                @elseif ($transaction->unit->category->name == 'motorcycle' || $transaction->unit->category->name == 'Motorcycle') 
+                                                                    <img src="{{asset('assets/motorcycle.png')}}" alt="Gambar Unit" style="width: 100px;"> 
+                                                                @else
+                                                                    <img src="https://picsum.photos/200" alt="Gambar Unit" style="width: 100px;">
+                                                                @endif   
+                                                            @endif
+                                                        </td>
                                                         <td>{{ optional($transaction->unit)->name }}
                                                         </td>
                                                         <td>{{ optional(optional($transaction->unit)->category)->name }}</td>
@@ -50,9 +63,13 @@
                                                         <td>{{$transaction->start_date}}</td>
                                                         <td>{{$transaction->end_date}}</td>
                                                         <td>{{$transaction->pickup_address}}</td>
+                                                        <td>{{$transaction->status}}</td>
                                                         <td>
-                                                            <button class="btn btn-primary btn-sm">Edit</button>
-                                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                                            <div class="d-flex">
+                                                                <button class="btn btn-primary btn-sm flex-fill me-2">Edit</button>
+                                                                <button class="btn btn-danger btn-sm flex-fill">Delete</button>
+                                                            </div>
+                                                            
                                                         </td>
                                                     </tr>
                                                 @endforeach

@@ -1,5 +1,6 @@
 @extends('layouts.main')
     @section('container')
+
     <!-- CAROUSEL IMAGE START  -->
     <div id="carouselExampleCaptions" class="carousel slide" >
       <div class="carousel-indicators">
@@ -42,18 +43,28 @@
     <!-- CAROUSEL IMAGE END -->
 
     <!-- CARD UNIT START -->
-    <div class="row mt-2 p-5">
+    <div class="row mt-2 p-5 justify-content-center">
       
       @foreach ($units as $unit)
-        <div class="col-sm-6 g-5">
-          <div class="card">
+        <div class="col-lg-4 g-3 mb-4 align-items-stretch">
+          <div class="card ">
             <div class="mobil justify-content-between d-flex p-2" style="font-size: 22px; line-height: 26px;">
-              <div>{{$unit->name}}</div>
+              <div class="me-2">{{$unit->name}}</div>
               <div>{{$unit->price}}K</div>
             </div>
             <div class="card-body mx-auto">
               <a href="/detail">
-                <img src="https://picsum.photos/200" class="img-thumbnail" alt="gambar unit mobil">
+                @if ($unit->image)
+                    <img src="{{asset('storage/'. $unit->image)}}" class="img-thumbnail" alt="gambar unit" style="width: 200px;">            
+                @else
+                    @if ($unit->category->name == 'car' || $unit->category->name == 'Car') 
+                        <img src="{{asset('assets/car.png')}}" class="img-thumbnail" alt="gambar unit mobil" style="width: 200px;"> 
+                    @elseif ($unit->category->name == 'motorcycle' || $unit->category->name == 'Motorcycle') 
+                        <img src="{{asset('assets/motorcycle.png')}}" class="img-thumbnail" alt="gambar unit motor" style="width: 200px;"> 
+                    @else
+                        <img src="https://picsum.photos/200" alt="Gambar Unit" class="img-thumbnail">
+                    @endif   
+                @endif
               </a>
                 <div class="container">
                   <div class="row align-items-start mt-3" style="font-size: 15px;">
@@ -72,63 +83,24 @@
                   </div>
                 </div>
             </div>
-            <div class="d-block mx-auto p-2 mb-2">
+            <div class="d-flex justify-content-center mx-auto p-2 mb-2">
+              <form action="/order" method="GET" target="blank">
+                <input type="hidden" name="unit" value="{{$unit->name}}">
+                <input type="hidden" name="price" value="{{$unit->price}}">
+                <button class="btn btn-dark me-5" type="submit">Sewa</button>
+              </form>
               <a href="/detail/{{$unit->slug}}" class="btn btn-light ">Detail</a>
             </div>
           </div>
         </div>
       @endforeach
+      
+      
+      {{$units->links()}}
 
     </div>
     <!-- CARD UNIT END -->
 
-    <!-- FOOTER START -->
-    <footer class="foot bg-light text-black text-center pt-4 pb-4">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 " style="font-size: 30px;">
-            <p>Cahaya Waskitha Transport</p>
-          </div>
-          <div class="col-lg-12 mb-5">
-            <a href="https://maps.app.goo.gl/HsnJf1b2Ks7Stm4V8" target="_blank" style="font-size: 12px; text-decoration: none;">Jl. Nogosari No.2, Nogosari I, Wukirsari, Kec. Imogiri, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55782</a>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-10 d-flex justify-content-center ">
-              <div class="col-2 ">
-                <a href="https://www.instagram.com/cahaya_waskitha?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-                  <img src="assets/Instagram.png" alt="Instagram">
-                </a>
-              </div>
-              <div class="col-2">
-                <a href="" target="_blank">
-                  <img src="assets/Youtube.png" alt="Youtube">
-                </a>
-              </div>
-              <div class="col-2 ">
-                <a href="https://wa.me/628562711129" target="_blank">
-                  <img src="assets/Whatsapp.png" alt="Whatsapp">
-                </a>
-              </div>
-              <div class="col-2">
-                <a href="" target="_blank">
-                  <img src="assets/Facebook.png" alt="Facebook">
-                </a>
-              </div>
-            </div>
-            
-          </div>
-          <div class="col-lg-12 mt-5 text-end">
-            <a href="/login" style="text-decoration: none; color: black;">Login as Admin</a>
-          </div>
-          <div class="col-lg-12 mt-2">
-            <p>&copy; 2024 CahayaWaskitha. All rights reserved.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- FOOTER END -->
-
 
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     @endsection

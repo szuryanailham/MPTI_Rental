@@ -41,7 +41,20 @@
                                 <td>{{$unit->id}}</td>
                                 <td>{{$unit->name}}</td>
                                 <td>{{$unit->category->name}}</td>
-                                <td><img src="https://picsum.photos/100" alt=""></td>
+                                <td>
+                                    @if ($unit->image)
+                                        <img src="{{asset('storage/'. $unit->image)}}" style="width: 100px;" alt="gambar unit">            
+                                    @else
+                                        @if ($unit->category->name == 'car' || $unit->category->name == 'Car') 
+                                            <img src="{{asset('assets/car.png')}}" alt="Gambar Unit" style="width: 100px;"> 
+                                        @elseif ($unit->category->name == 'motorcycle' || $unit->category->name == 'Motorcycle') 
+                                            <img src="{{asset('assets/motorcycle.png')}}" alt="Gambar Unit" style="width: 100px;"> 
+                                        @else
+                                            <img src="https://picsum.photos/100" alt="Gambar Unit" style="width: 100px;">
+                                        @endif   
+                                    @endif
+                
+                                </td>
                                 <td> 
                                     <a href="/dashboard-units/{{$unit->slug}}/edit" class="badge bg-primary "><i data-feather="edit"></i> </a>
                                     <form action="/dashboard-units/{{$unit->slug}}" method="POST" class="d-inline">

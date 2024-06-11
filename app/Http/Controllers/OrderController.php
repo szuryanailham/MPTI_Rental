@@ -20,17 +20,20 @@ class OrderController extends Controller
             'address' => 'required|min:10|max:255',
             'phone' => 'required|regex:/^(\+62|62|0)8[1-9][0-9]{6,11}$/',
             'unit' => 'required|max:50',
+            'price' => 'required|numeric',
 
             //PICKUP
             'pickup' => 'required|max:255',
-            'start-time' => 'required',
+            // 'start-time' => 'required',
             'start-date' => 'required',
 
             //RETURN
             'return' => 'required',
-            'end-time' => 'required',
+            // 'end-time' => 'required',
             'end-date' => 'required',
         ]);
+
+        $validatedData['total'] = $validatedData['price'];
 
         Transaction::create($validatedData);
 

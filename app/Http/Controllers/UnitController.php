@@ -6,6 +6,7 @@ use App\Models\Unit;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class UnitController extends Controller
 {
@@ -51,11 +52,16 @@ class UnitController extends Controller
             'name' => 'required|string|max:255',
             'slug' => 'required|unique:units',       
             'category_id' => 'required',   
+            'image' => 'image|file|max:2048',
             'price' => 'required|numeric|min:0',       
-            'capacity' => 'required|integer|min:1',    
+            'capacity' => 'required|integer|min:1',
+            'steering' => 'required',    
             'description' => 'required',        
         ]);
 
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('unit-images');
+        }
 
         Unit::create($validatedData);
 
@@ -88,10 +94,12 @@ class UnitController extends Controller
     {
         $validatedData = [
             //Edit Unit
-            'name' => 'required|string|max:255',     
+            'name' => 'required|string|max:255',          
+            'image' => 'image|file|max:2048',
             'category_id' => 'required',   
             'price' => 'required|numeric|min:0',       
-            'capacity' => 'required|integer|min:1',    
+            'capacity' => 'required|integer|min:1',
+            'steering' => 'required',     
             'description' => 'required|string',        
         ];
 
@@ -103,6 +111,15 @@ class UnitController extends Controller
         $newData = $request->validate($validatedData);
         // dd($newData);
 
+        if($request->file('image')){
+            if($request->file('oldImage')){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('unit-images');
+        }
+
+        
+
         Unit::where('id', $unit->id)->update($newData);
 
         return redirect('/dashboard-units')->with('success', 'Unit has been updated!');
@@ -113,6 +130,10 @@ class UnitController extends Controller
      */
     public function destroy(Unit $unit)
     {
+        if($unit->image){
+            Storage::delete($unit->image);
+        }
+
         Unit::destroy($unit->id);
 
         return redirect('/dashboard-units')->with('success', 'Unit has been deleted');
