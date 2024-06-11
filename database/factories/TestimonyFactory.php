@@ -18,7 +18,7 @@ class TestimonyFactory extends Factory
     {
         return [
             'name'  => $this->faker->name(),
-            'rating' => $this->faker->randomFloat(1, 1, 5),
+            'rating' => number_format($this->faker->numberBetween(1, 5), 1),
             'description' => $this->faker->sentence(10, 20),
             'testimony_created_at' => now()
         ];

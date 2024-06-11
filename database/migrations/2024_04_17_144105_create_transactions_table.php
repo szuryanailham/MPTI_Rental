@@ -19,10 +19,10 @@ return new class extends Migration
             $table->text('address');
             $table->string('phone_number');
             $table->text('pickup_address');
-            $table->date('start_date');
-            $table->time('start_time');
-            $table->date('end_date');
-            $table->time('end_time');
+            $table->dateTime('start_date');
+            // $table->time('start_time');
+            $table->dateTime('end_date');
+            // $table->time('end_time');
             $table->integer('duration');
             $table->integer('total');
             $table->string('status');

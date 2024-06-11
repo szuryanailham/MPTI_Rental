@@ -22,7 +22,8 @@ class UnitFactory extends Factory
             'price' => $this->faker->numberBetween(100, 300),
             'capacity' => $this->faker->numberBetween(2, 10),
             'description' => $this->faker->paragraph(),
-            'category_id' => mt_rand(1, 2)
+            'category_id' => mt_rand(1, 2),
+            'steering' => $this->faker->randomElement(['Manual', 'Matic']),
         ];
     }
 }

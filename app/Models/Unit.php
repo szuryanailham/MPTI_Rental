@@ -11,7 +11,7 @@ class Unit extends Model
     use HasFactory, Sluggable;
 
     protected $guard = ['id'];
-    protected $fillable =['name', 'price', 'category_id', 'capacity', 'description', 'slug'];
+    protected $fillable =['name', 'price', 'category_id', 'capacity', 'description', 'slug', 'image', 'steering'];
 
     
     public function category(){

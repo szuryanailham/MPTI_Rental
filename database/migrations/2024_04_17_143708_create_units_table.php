@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->integer('price');
             $table->integer('capacity');
+            $table->string('steering');
             $table->text('description')->nullable();
             $table->timestamps();
         });

@@ -22,7 +22,7 @@ class DashboardController extends Controller
 
         return view('admin.dashboard_admin', [
             'units' => $units->get(),
-            'openTransactions' => Transaction::where('status', 'open')->count(),
+            'openTransactions' => Transaction::where('status', ['open', 'Open'])->count(),
             'totalTransactions' => Transaction::where('status', 'open')->sum('total'),
             'peopleTransactions' => Transaction::all()->count()
         ]);
