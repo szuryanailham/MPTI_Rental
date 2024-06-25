@@ -23,6 +23,7 @@ class TransactionFactory extends Factory
             'pickup_address' => $this->faker->address(),
             'start_date' => $this->faker->dateTime(),
             // 'start_time' => $this->faker->time(),
+            'return_address' => $this->faker->address(),
             'end_date' => $this->faker->dateTime(),
             // 'end_time' => $this->faker-> time(),
             'duration' => mt_rand(1, 30),

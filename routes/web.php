@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TestimonyController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UnitController;
@@ -27,9 +28,8 @@ Route::get('/profile', function () {
 
 Route::get('/detail/{unit:slug}', [HomeController::class, 'show']);
 
-Route::get('/order', function () {
-    return view('order');
-});
+Route::get('/order/{unit:slug}', [OrderController::class, 'order']);
+Route::post('/order/{unit:slug}', [OrderController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -89,6 +89,11 @@ Route::get('/tables-admin', function () {
 });
 
 Route::get('/transaction', [TransactionController::class, 'index']);
+
+Route::get('/transaction/{transaction}/edit', [TransactionController::class, 'edit']);
+Route::put('/transaction/{transaction}', [TransactionController::class, 'update']);
+
+
 
 Route::get('/utilities-animation', function () {
     return view('admin/utilities-animation');

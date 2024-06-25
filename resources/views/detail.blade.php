@@ -34,11 +34,7 @@
           </div>
           <div class="row  mt-5 ">
             <div class="col-12 d-flex justify-content-end">
-              <form action="/order" method="GET" target="blank">
-                <input type="hidden" name="unit" value="{{$unit->name}}">
-                <input type="hidden" name="price" value="{{$unit->price}}">
-                <button class="btn btn-dark me-5" type="submit">Sewa</button>
-              </form>
+              <a href="/order/{{$unit->slug}}" class="btn btn-dark me-5">Sewa</a>
             </div>
           </div>
           

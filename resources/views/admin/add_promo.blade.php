@@ -8,20 +8,27 @@
                                 class="fas fa-plus fa-sm text-white-50"></i>  Add Unit</a>
                     </div>
 
-                    <div class="text-dark">
-                        <div>
-                            <p>Kode Promo</p>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        </div><br>
-                        <div>
-                            <p>Nama Promo</p>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        </div><br>
-                        <div>
-                            <p>Upload Banner Promo</p>
+                    <form action="/add-promo" method="POST" enctype="multipart/form-data">
+                        <div class="text-dark">
+                            <div>
+                                <label>Kode Promo</label>
+                                <input type="text" name="code" class="form-control" id="code">
+                            </div><br>
+                            <div>
+                                <label>Nama Promo</label>
+                                <input type="text" name="name" class="form-control" id="name">
+                            </div><br>
+                            <div>
+                                <label>Upload Banner Promo</label>
+                                <input type="file" name="banner" class="form-control" id="banner">                                
+                            </div><br>
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-dark">Submit</button>
+                            </div>
+
+                        </div>
+                    </form>
                     
-                        </div><br>
-                    </div>
                     
 
 @endsection

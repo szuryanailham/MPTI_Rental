@@ -30,9 +30,9 @@
                                 </div>  
                             @enderror
                         </div>
-                        <div class="container">
-                            <div class="row mb-3 mx-2">
-                                <div class="col-lg-12 d-flex align-items-center ">
+                        {{-- <div class="container"> --}}
+                            <div class="row mb-3 justify-content-evenly d-flex " >
+                                <div class="col-lg-2 col-sm-3 mb-3">
                                     <label for="category_id" class="form-label me-2">Kategori</label>
                                     <select id="category" name="category_id" class="form-select @error('category_id') is-invalid @enderror" required>
                                         @foreach ($categories as $category)
@@ -49,9 +49,7 @@
                                         </div>  
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="row mb-3 mx-2">
-                                <div class=" col-lg-12 d-flex align-items-center ">
+                                <div class="col-lg-2 col-sm-3 mb-3">
                                     <label for="steering" class="form-label me-2 @error('steering') is-invalid @enderror">Kendali</label>
                                     <select id="steering" class="form-select" name="steering">
                                         <option value="Manual">Manual</option>
@@ -63,9 +61,7 @@
                                     </div>  
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="row mb-3 mx-2">
-                                <div class="col-lg-8 d-flex align-items-center">
+                                <div class="col-lg-2 col-sm-3 mb3 ">
                                     <label for="capacity" class="form-label me-2 @error('capacity') is-invalid @enderror">Capacity</label>
                                     <input type="number" name="capacity" class="form-control" value="{{old('capacity')}}" required>
                                     @error('capacity')
@@ -75,18 +71,22 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
+                        {{-- </div> --}}
+                        
                         
                         <div class="text-dark">
-                            <label for="image" class="form-label @error('image') is-invalid @enderror">Upload gambar</label>
-                            <img class="img-preview img-fluid mb-3 col-sm-5">
-                            <input type="file" name="image" class="form-control"><br>
+                            <label for="image" class="form-label">Upload gambar</label>
+                            <div class="p-3">
+                                <img class="img-preview img-fluid mb-3 col-sm-5 p-0 mx-auto"  style="border-radius: 20px;" >
+                            </div>
+                            <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage()"><br>
                             @error('image')
                                 <div class="invalid-feedback">
-                                    {{$message}}
+                                    {{ $message }}
                                 </div>  
                             @enderror
                         </div>
+
                         <div class="text-dark">
                             <label for="description" class="form-label @error('description') is-invalid @enderror">Penjelasan</label>
                             <textarea name="description" class="form-control" required>{{old('description')}}</textarea>

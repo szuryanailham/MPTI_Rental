@@ -19,7 +19,7 @@ class UnitFactory extends Factory
         return [
             'slug' => $this->faker->slug,
             'name' => $this->faker->sentence(mt_rand(2, 3)),
-            'price' => $this->faker->numberBetween(100, 300),
+            'price' => $this->faker->numberBetween(100, 300) * 1000,
             'capacity' => $this->faker->numberBetween(2, 10),
             'description' => $this->faker->paragraph(),
             'category_id' => mt_rand(1, 2),

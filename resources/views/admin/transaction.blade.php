@@ -4,7 +4,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800 font-weight-bold">Transaction</h1>
-                        <a href="add_unit.html"d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        <a href="add_unit.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-plus fa-sm text-white-50"></i> Add Unit</a>
                     </div>
 
@@ -20,17 +20,17 @@
                                         <table class="table table-bordered text-dark font-weight-bold" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th>ID Pemesanan</th>
-                                                    <th>Gambar Unit</th>
-                                                    <th>Nama Unit</th>
-                                                    <th>Kategori Unit</th>
-                                                    <th>Nama Peminjam</th>
-                                                    <th>Nomor Telefon Peminjam</th>
-                                                    <th>Alamat Peminjam</th>
-                                                    <th>Harga Total Peminjam</th>
+                                                    <th>Id</th>
+                                                    <th>Gambar</th>
+                                                    <th>Unit</th>
+                                                    <th>Kategori</th>
+                                                    <th>Nama</th>
+                                                    <th>Nomor Telepon</th>
+                                                    <th>Alamat</th>
+                                                    <th>Harga</th>
                                                     <th>Tanggal Mulai</th>
-                                                    <th>Tanggal Akhir</th>
-                                                    <th>Lokasi Awal Peminjaman</th>
+                                                    <th>Tanggal Berakhir</th>
+                                                    <th>Lokasi Peminjaman</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -49,7 +49,7 @@
                                                                 @elseif ($transaction->unit->category->name == 'motorcycle' || $transaction->unit->category->name == 'Motorcycle') 
                                                                     <img src="{{asset('assets/motorcycle.png')}}" alt="Gambar Unit" style="width: 100px;"> 
                                                                 @else
-                                                                    <img src="https://picsum.photos/200" alt="Gambar Unit" style="width: 100px;">
+                                                                    <img src="https://picsum.photos/100" alt="Gambar Unit" style="width: 100px;">
                                                                 @endif   
                                                             @endif
                                                         </td>
@@ -66,7 +66,7 @@
                                                         <td>{{$transaction->status}}</td>
                                                         <td>
                                                             <div class="d-flex">
-                                                                <button class="btn btn-primary btn-sm flex-fill me-2">Edit</button>
+                                                                <a href="/transaction/{{$transaction->id}}/edit" class="btn btn-primary btn-sm flex-fill me-2">Edit</a>
                                                                 <button class="btn btn-danger btn-sm flex-fill">Delete</button>
                                                             </div>
                                                             

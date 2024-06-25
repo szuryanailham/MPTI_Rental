@@ -31,9 +31,9 @@
                                 </div>  
                             @enderror
                         </div>
-                        <div class="container">
-                            <div class="row mb-3 mx-2">
-                                <div class="col-lg-12 d-flex align-items-center ">
+                        {{-- <div class="container"> --}}
+                            <div class="row mb-3 justify-content-evenly d-flex">
+                                <div class="col-lg-2 col-sm-3 mb-3 ">
                                     <label for="category_id" class="form-label me-2">Kategori</label>
                                     <select id="category" name="category_id" class="form-select @error('category_id') is-invalid @enderror" required>
                                         @foreach ($categories as $category)
@@ -50,41 +50,41 @@
                                         </div>  
                                     @enderror
                                 </div>
-                            </div>
-                            <div class="d-flex text-dark align-items-center select-wrapper">
-                                <label for="steering" class="form-label me-2 @error('steering') is-invalid @enderror">Kendali</label>
-                                    <select id="steering" class="form-select" name="steering">
-                                        @if (old('steering', $unit->steering) == 'Manual')
-                                            <option value="Manual" selected>Manual</option>
-                                            <option value="Matic">Matic</option>
-                                        @else
-                                        <option value="Manual">Manual</option>
-                                        <option value="Matic" selected>Matic</option>
-                                        @endif
-                                    </select>
-                                    @error('steering')
+                                <div class="col-lg-2 col-sm-3 mb-3">
+                                    <label for="steering" class="form-label me-2 @error('steering') is-invalid @enderror">Kendali</label>
+                                        <select id="steering" class="form-select" name="steering">
+                                            @if (old('steering', $unit->steering) == 'Manual')
+                                                <option value="Manual" selected>Manual</option>
+                                                <option value="Matic">Matic</option>
+                                            @else
+                                            <option value="Manual">Manual</option>
+                                            <option value="Matic" selected>Matic</option>
+                                            @endif
+                                        </select>
+                                        @error('steering')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>  
+                                        @enderror
+                                </div>
+                                <div class="col-lg-2 col-sm-3 mb3 ">
+                                    <label for="capacity" class="form-label me-2 @error('capacity') is-invalid @enderror">Capacity</label>
+                                    <input type="number" name="capacity" class="form-control" value="{{old('capacity', $unit->capacity)}}" required>
+                                    @error('capacity')
                                     <div class="invalid-feedback">
                                         {{$message}}
                                     </div>  
                                     @enderror
+                                </div>
                             </div>
-                            <div class="d-flex text-dark align-items-center">
-                                <label for="capacity" class="form-label mr-2 @error('capacity') is-invalid @enderror">Capacity</label>
-                                <input type="number" name="capacity" class="form-control capacity" value="{{old('capacity', $unit->capacity)}}" required>
-                                @error('capacity')
-                                <div class="invalid-feedback">
-                                    {{$message}}
-                                </div>  
-                            @enderror
-                            </div>
-                        </div><br>
+                        {{-- </div> --}}
                         <div class="text-dark">
                             <label for="image" class="form-label @error('image') is-invalid @enderror">Upload gambar</label>
-                            <input type="hidden" name="oldImage" value="{{$unit->image}}">
+                            <input type="text" name="oldImage" value="{{$unit->image}}">
                             @if ($unit->image)
-                                <img src="{{asset('storage/. $unit->image')}}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                                <img src="{{ asset('storage/' . $unit->image) }}" class="img-preview img-fluid mb-3 col-sm-5 p-0 mx-auto d-block"  style="border-radius: 20px;" >
                             @else
-                                <img class="img-preview img-fluid mb-3 col-sm-5">
+                            <img class="img-preview img-fluid mb-3 col-sm-5 p-0 mx-auto"  style="border-radius: 20px;" >
                             @endif
                             <input type="file" name="image" id="image" class="form-control" onchange="previewImage()" ><br>
                             @error('image')
@@ -130,6 +130,7 @@
 
                 oFReader.onload = function(oFREvent){
                     imagePreview.src = oFREvent.target.result;
+                    
                 }
             }
         </script>

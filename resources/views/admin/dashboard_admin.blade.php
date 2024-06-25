@@ -12,7 +12,7 @@
                     <!-- Content Row -->
                     <div class="row">
                         <!-- Open Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4" >
+                        <div class="col-xl-4 col-lg-6 mb-4" >
                             <div class="card py-2" style="background-color: #3D74B4;">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center" >
@@ -33,7 +33,7 @@
                         <!-- Open Order Card END -->
 
                         <!-- Total Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="col-xl-4 col-lg-6 mb-4">
                             <div class="card py-2"  style="background-color: #3D74B4;">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -54,7 +54,7 @@
                         <!-- Total Order Card END -->
 
                         <!-- People Order Card START -->
-                        <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="col-xl-4 col-lg-6 mb-4">
                             <div class="card py-2" style="background-color: #3D74B4;">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
