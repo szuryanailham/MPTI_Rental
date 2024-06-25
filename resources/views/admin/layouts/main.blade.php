@@ -18,6 +18,8 @@
         
     {{-- Bootstrap --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" rel="stylesheet" integrity="sha384-wcUp8xFqEcrWs/EnHrLdtfMSkA5A7q1l6thqEq+H+9yA/IhrK1DZDIH/Xk3sFWVn" crossorigin="anonymous"></script> -->
+
 
 
     {{-- Fontawesome --}}
@@ -26,7 +28,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}"> 
     <link rel="stylesheet" href="{{asset('css/style_add_unit.css')}}">
+
 
     {{-- Custom admin for background and hamburger button --}}
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
@@ -38,7 +42,7 @@
     
     <!-- Page Wrapper -->
     <div id="wrapper">
-        @include('admin.partials.sidebar')
+        <!-- @include('admin.partials.sidebar') -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -69,6 +73,7 @@
 
     {{-- FeatherIcon --}}
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+
     <script>
         feather.replace({ 'aria-hidden': 'true' })
     </script>

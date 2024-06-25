@@ -2,10 +2,11 @@
     @section('container')
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 font-weight-bold">All Unit</h1>
-                        <a href="/dashboard-units/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-plus fa-sm text-white-50"></i>  Add Unit</a>
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-dark font-weight-bold">All Unit</h1>
+                        <a href="/add-unit" class="btn btn-sm btn-primary shadow-sm">
+                            <i class="fas fa-plus fa-sm text-white-50"></i>  Add Unit
+                        </a>
                     </div>
                     {{-- Search --}}
                     <div class="row justify-content-center">
@@ -65,7 +66,7 @@
                                                                 @endif
                                                             </td>
                                                             <td>
-                                                                <a href="/dashboard-units/{{ $unit->slug }}/edit" class="badge bg-primary">
+                                                                <a href="/dashboard-units/{{ $unit->slug }}/edit" class="badge bg-primary me-2 mb-2">
                                                                     <i data-feather="edit"></i>
                                                                 </a>
                                                                 <form action="/dashboard-units/{{ $unit->slug }}" method="POST" class="d-inline">
