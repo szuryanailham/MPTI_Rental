@@ -15,7 +15,7 @@ class UnitController extends Controller
      */
     public function index()
     {
-        $units = Unit::all();
+        $units = Unit::paginate(10);
 
         if(request('search')){
             $search = request('search');
@@ -112,10 +112,10 @@ class UnitController extends Controller
         // dd($newData);
 
         if($request->file('image')){
-            if($request->file('oldImage')){
+            if($request->oldImage){
                 Storage::delete($request->oldImage);
             }
-            $validatedData['image'] = $request->file('image')->store('unit-images');
+            $newData['image'] = $request->file('image')->store('unit-images');
         }
 
         

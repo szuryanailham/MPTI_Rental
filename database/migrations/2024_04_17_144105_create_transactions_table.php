@@ -21,11 +21,12 @@ return new class extends Migration
             $table->text('pickup_address');
             $table->dateTime('start_date');
             // $table->time('start_time');
+            $table->text('return_address');
             $table->dateTime('end_date');
             // $table->time('end_time');
             $table->integer('duration');
             $table->integer('total');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();   
         });
 

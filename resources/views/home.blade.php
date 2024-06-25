@@ -70,7 +70,7 @@
                   <div class="row align-items-start mt-3" style="font-size: 15px;">
                     <div class="col">
                       <img src="/assets/clock.png" alt="clock" >
-                      <p>Jam</p>
+                      <p>1 Hari</p>
                     </div>
                     <div class="col">
                       <img src="/assets/user_unit.png" alt="clock">
@@ -83,12 +83,8 @@
                   </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-center mx-auto p-2 mb-2">
-              <form action="/order" method="GET" target="blank">
-                <input type="hidden" name="unit" value="{{$unit->name}}">
-                <input type="hidden" name="price" value="{{$unit->price}}">
-                <button class="btn btn-dark me-5" type="submit">Sewa</button>
-              </form>
+            <div class="d-flex justify-content-center mx-auto p-2 mb-2">  
+              <a href="/order/{{$unit->slug}}" class="btn btn-dark me-5">Sewa</a>
               <a href="/detail/{{$unit->slug}}" class="btn btn-light ">Detail</a>
             </div>
           </div>

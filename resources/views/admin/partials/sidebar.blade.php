@@ -10,17 +10,18 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item ">
+    <li class="nav-item {{Request::is('dashboard') ? 'active' : ''}}">
         <a class="nav-link" href="/dashboard">
             <i>
                 <img src="{{asset('assets/chart icon.png')}}" alt="">
             </i>
-            <span>Dashboard</span></a>
+            <span>Dashboard</span>
+        </a>
     </li>
     <hr class="sidebar-divider">
 
     <!-- Nav Item - All Unit -->
-    <li class="nav-item active">
+    <li class="nav-item {{Request::is('dashboard-units') ? 'active' : ''}}">
         <a class="nav-link" href="/dashboard-units">
             <i> 
                 <img src="{{asset('assets/car icon.png')}}" alt=""> 
@@ -30,7 +31,7 @@
     </li>
 
     <!-- Nav Item - Transaction -->
-    <li class="nav-item">
+    <li class="nav-item {{Request::is('transaction') ? 'active' : ''}}">
         <a class="nav-link" href="/transaction" >
             <i>
                 <img src="{{asset('assets/icon_transaction.png')}}" alt="">
@@ -40,7 +41,7 @@
     </li>
 
     <!-- Nav Item - Feedback -->
-    <li class="nav-item">
+    <li class="nav-item {{Request::is('feedback') ? 'active' : ''}}">
         <a class="nav-link " href="/feedback">
             <i>
                 <img src="{{asset('assets/feedback icon.png')}}" alt="">
@@ -68,16 +69,17 @@
     </div>
 
     <!-- Nav Item - Add Unit -->
-    <li class="nav-item">
+    <li class="nav-item {{Request::is('dashboard-units/create') ? 'active' : ''}}">
         <a class="nav-link" href="/dashboard-units/create">
             <i>
                 <img src="{{asset('assets/add unit icon.png')}}" alt="">
             </i>
-            <span>Add Unit</span></a>
+            <span>Add Unit</span>
+        </a>
     </li>
 
     <!-- Nav Item - Promo -->
-    <li class="nav-item">
+    <li class="nav-item {{Request::is('add-promo') ? 'active' : ''}}">
         <a class="nav-link" href="/add-promo">
             <i>
                 <img src="{{asset('assets/promo icon.png')}}" alt="">

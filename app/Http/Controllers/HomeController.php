@@ -22,4 +22,12 @@ class HomeController extends Controller
             'unit'  => $unit
         ]);
     }
+
+    // public function order(Unit $unit)
+    // {
+    //     return view('order', [
+    //         'unit'  => $unit
+    //     ]);
+    // }
+    
 }

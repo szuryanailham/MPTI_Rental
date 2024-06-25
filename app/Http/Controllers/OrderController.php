@@ -3,41 +3,55 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use App\Models\Unit;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function order(Unit $unit)
     {
-        return view('order');
+        return view('order', [
+            'unit'  => $unit
+        ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Unit $unit)
     {
-        $validatedData = $request->validate([
-            // RENT
-            'name' => 'required|min:2|max:100',
-            'address' => 'required|min:10|max:255',
-            'phone' => 'required|regex:/^(\+62|62|0)8[1-9][0-9]{6,11}$/',
-            'unit' => 'required|max:50',
-            'price' => 'required|numeric',
 
-            //PICKUP
-            'pickup' => 'required|max:255',
-            // 'start-time' => 'required',
-            'start-date' => 'required',
-
-            //RETURN
-            'return' => 'required',
-            // 'end-time' => 'required',
-            'end-date' => 'required',
+        $request->validate([
+            'duration-text' => 'required'
         ]);
 
-        $validatedData['total'] = $validatedData['price'];
+        $validatedData = $request->validate([
+            // RENT
+            'unit_id' => 'required',
+            'status' => 'required',
+
+            'name' => 'required|max:100',
+            'address' => 'required|max:255',
+            'phone_number' => 'required',
+            // 'unit_name' => 'required|max:100',
+            // 'price' => 'required|numeric',
+
+            //PICKUP
+            'pickup_address' => 'required|max:255',
+            // 'start-time' => 'required',
+            'start_date' => 'required',
+
+            //RETURN
+            'return_address' => 'required',
+            // 'end-time' => 'required',
+            'end_date' => 'required',
+
+            //TOTAL & DURATION
+            'total' => 'required',
+            'duration' => 'required'
+            
+        ]);
 
         Transaction::create($validatedData);
 
-        return redirect('/order')->with('success', 'Transaction successful!');
+        return redirect('/order/' . $unit->slug)->with('success', 'Transaction successful!');
     }
 
 
