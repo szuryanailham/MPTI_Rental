@@ -1,99 +1,28 @@
- <!-- Sidebar -->
- <ul class="navbar-nav sidebar sidebar-dark bg-dark text-light sidebar-custom" id="accordionSidebar">
+<!-- sidebar.blade.php -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon">
-            <img src="{{asset('/assets/logo_cw.png')}}" alt="CW">
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark text-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{{asset('assets/logo_cw.png')}}" alt="CW" style="height: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item me-5">
+                    <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item me-5">
+                    <a class="nav-link {{ Request::is('dashboard-units') ? 'active' : '' }}" href="/dashboard-unit">All Unit</a>
+                </li>
+                <li class="nav-item me-5">
+                    <a class="nav-link {{ Request::is('transaction') ? 'active' : '' }}" href="/transaction">Transaction</a>
+                </li>
+            </ul>
         </div>
-    </a>
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{Request::is('dashboard') ? 'active' : ''}}">
-        <a class="nav-link" href="/dashboard">
-            <i>
-                <img src="{{asset('assets/chart icon.png')}}" alt="">
-            </i>
-            <span>Dashboard</span>
-        </a>
-    </li>
-    <hr class="sidebar-divider">
-
-    <!-- Nav Item - All Unit -->
-    <li class="nav-item {{Request::is('dashboard-units') ? 'active' : ''}}">
-        <a class="nav-link" href="/dashboard-units">
-            <i> 
-                <img src="{{asset('assets/car icon.png')}}" alt=""> 
-            </i>
-            <span>All Unit</span>
-        </a>
-    </li>
-
-    <!-- Nav Item - Transaction -->
-    <li class="nav-item {{Request::is('transaction') ? 'active' : ''}}">
-        <a class="nav-link" href="/transaction" >
-            <i>
-                <img src="{{asset('assets/icon_transaction.png')}}" alt="">
-            </i>
-            <span>Transaction</span>
-        </a>
-    </li>
-
-    <!-- Nav Item - Feedback -->
-    <li class="nav-item {{Request::is('feedback') ? 'active' : ''}}">
-        <a class="nav-link " href="/feedback">
-            <i>
-                <img src="{{asset('assets/feedback icon.png')}}" alt="">
-            </i>
-            <span>Feedback</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
-            </div>
-        </div>
-    </li>
-    <hr class="sidebar-divider">
-
-    
-    <div class="sidebar-heading">
-        OTHERS
     </div>
+</nav>
 
-    <!-- Nav Item - Add Unit -->
-    <li class="nav-item {{Request::is('dashboard-units/create') ? 'active' : ''}}">
-        <a class="nav-link" href="/dashboard-units/create">
-            <i>
-                <img src="{{asset('assets/add unit icon.png')}}" alt="">
-            </i>
-            <span>Add Unit</span>
-        </a>
-    </li>
-
-    <!-- Nav Item - Promo -->
-    <li class="nav-item {{Request::is('add-promo') ? 'active' : ''}}">
-        <a class="nav-link" href="/add-promo">
-            <i>
-                <img src="{{asset('assets/promo icon.png')}}" alt="">
-            </i>
-            <span>Promo</span></a>
-    </li>
-
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
-    
-</ul>
-<!-- End of Sidebar -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-wcUp8xFqEcrWs/EnHrLdtfMSkA5A7q1l6thqEq+H+9yA/IhrK1DZDIH/Xk3sFWVn" crossorigin="anonymous"></script>

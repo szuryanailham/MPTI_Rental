@@ -78,28 +78,8 @@
                             </div>  
                         @enderror
                       </div>
-                      <div class="row mb-3 d-flex justify-content-center">
-                        <div class="col-md-3">
-                            <label for="unit_name" class="form-label">Unit</label>
-                            <input type="text" name="unit_name" class="form-control @error('unit_name') is-invalid @enderror" id="unit_name" placeholder="Unit" value="{{ old('unit_name', $unit->name) }}" readonly required>
-                            @error('unit_name')
-                                <div class="invalid-feedback">
-                                    {{$message}}
-                                </div>  
-                            @enderror
-                        </div>
-                        <div class="col-md-3">
-                            <label for="price" class="form-label @error('price') is-invalid @enderror">Harga Sewa</label>
-                            <div class="input-group">
-                                <input type="number" name="price" class="form-control" id="price" placeholder="price" value="{{ old('price', $unit->price) }}" readonly>
-                                <span class="input-group-text">/hari</span>
-                                @error('price')
-                                    <div class="invalid-feedback">
-                                        {{$message}}
-                                    </div>  
-                                @enderror
-                            </div>                        
-                        </div>
+                      <div class="mb-3">
+                            <p>Unit: <b>{{$unit->name}}</b>  Price: <b>{{$unit->price}}/Hari</b></p>     
                     </div>
                     
                 </div>            
@@ -122,13 +102,13 @@
                         </div>  
                     @enderror
                   </div>
-                  {{-- <div class="mb-3">
+                  <div class="mb-3">
                     <label for="start-time" class="form-label">Waktu</label>
                     <input type="time" name="start-time" class="form-control" id="start-time" placeholder="Waktu Sewa"  >
-                  </div> --}}
+                  </div>
                   <div class="mb-3">
                     <label for="start_date" class="form-label">Tanggal mulai</label>
-                    <input type="datetime-local" name="start_date" class="form-control @error('start_date') is-invalid @enderror" id="start_date" value="{{ old('start_date') }}" placeholder="Tanggal Sewa" required>
+                    <input type="date" name="start_date" class="form-control @error('start_date') is-invalid @enderror" id="start_date" value="{{ old('start_date') }}" placeholder="Tanggal Sewa" required>
                     @error('start_date')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -155,13 +135,13 @@
                         </div>  
                     @enderror
                   </div>
-                  {{-- <div class="mb-3">
+                  <div class="mb-3">
                     <label for="end-time" class="form-label">Waktu</label>
                     <input type="time" name="end-time" class="form-control" id="end-time" placeholder="Waktu Kumpul"  >
-                  </div> --}}
+                  </div>
                   <div class="mb-3">
                     <label for="end_date" class="form-label">Tanggal berakhir</label>
-                    <input type="datetime-local" name="end_date" class="form-control @error('end_date') is-invalid @enderror" id="end_date" value="{{ old('end_date') }}" placeholder="Tanggal Pengembalian" >
+                    <input type="date" name="end_date" class="form-control @error('end_date') is-invalid @enderror" id="end_date" value="{{ old('end_date') }}" placeholder="Tanggal Pengembalian" >
                     @error('end_date')
                         <div class="invalid-feedback">
                             {{$message}}
