@@ -23,10 +23,14 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
+                                        <div class="hidden-input">
+                                            <input type="number" name="duration" id="duration" value="{{old('duration', $transaction->duration )}}" hidden readonly>
+                                            <input type="number" name="price" class="form-control" id="price" placeholder="price" value="{{ old('price', $transaction->unit->price) }}" hidden readonly>
+                                        </div>
                                         <table class="table table-bordered text-dark font-weight-bold" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th>Id</th>
+                                                    <th>Kode</th>
                                                     <th>Gambar</th>
                                                     <th>Unit</th>
                                                     <th>Nama</th>
@@ -47,7 +51,7 @@
                                                 <tbody>
                                                     <!-- Data transaksi pemesanan akan ditampilkan di sini -->
                                                     <tr>
-                                                        <td>{{$transaction->id}}</td>
+                                                        <td>{{$transaction->code}}</td>
                                                         <td>
                                                             @if ($transaction->unit->image)
                                                                 <img src="{{asset('storage/'. $unit->image)}}" style="width: 100px;" alt="gambar unit">            
@@ -62,8 +66,7 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <input type="number" name="price" class="form-control" id="price" placeholder="price" value="{{ old('price', $transaction->unit->price) }}" readonly>
-                                                            <select id="category" name="category_id" class="form-select custom-select @error('category_id') is-invalid @enderror" required>
+                                                            <select id="unit_id" name="unit_id" class="form-select custom-select @error('unit_id') is-invalid @enderror" required>
                                                                 @foreach ($units as $unit)
                                                                     @if (old('unit_id', $transaction->unit) == $unit->id)
                                                                         <option value="{{$unit->id}}" selected> {{$unit->name}} - {{$unit->category->name}}</option>
@@ -89,10 +92,9 @@
                                                                     {{$message}}
                                                                 </div>  
                                                             @enderror
-                                                            <input type="number" name="duration" id="duration" value="{{old('duration', $transaction->duration )}}" readonly >
                                                         </td>
                                                         <td>
-                                                            <input type="datetime-local" name="start_date" class="form-control input-width @error('start_date') is-invalid @enderror" id="start_date" value="{{old('start_date', $transaction->start_date )}}" required>
+                                                            <input type="date" name="start_date" class="form-control input-width @error('start_date') is-invalid @enderror" id="start_date" value="{{old('start_date', $transaction->start_date )}}" required>
                                                             @error('start_date')
                                                                 <div class="invalid-feedback">
                                                                     {{$message}}
@@ -100,7 +102,7 @@
                                                             @enderror
                                                         </td>
                                                         <td>
-                                                            <input type="datetime-local" name="end_date" class="form-control input-width @error('end_date') is-invalid @enderror" id="end_date" value="{{old('end_date', $transaction->end_date )}}" required>
+                                                            <input type="date" name="end_date" class="form-control input-width @error('end_date') is-invalid @enderror" id="end_date" value="{{old('end_date', $transaction->end_date )}}" required>
                                                             @error('end_date')
                                                                 <div class="invalid-feedback">
                                                                     {{$message}}
@@ -138,69 +140,88 @@
                         </div>
                     </div>
 
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const startDateInput = document.getElementById('start_date');
-                            const endDateInput = document.getElementById('end_date');
-                            // const durationInput = document.getElementById('duration-text');
-                            const priceInput = document.getElementById('price'); // Ambil elemen input harga per hari
-                    
-                            // Set minimum value for start_date to today's date
-                            const today = new Date().toISOString().split('T')[0];
-                            startDateInput.setAttribute('min', today);
-                            
-                            startDateInput.addEventListener('change', function() {
-                                // Calculate and update duration
-                                calculateDaysDifference();
-                            });
+ <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const startDateInput = document.getElementById('start_date');
+        const endDateInput = document.getElementById('end_date');
+        const durationInput = document.getElementById('duration');
+        const priceInput = document.getElementById('price'); // Ambil elemen input harga per hari
 
-                            endDateInput.addEventListener('change', function() {
-                                const startDate = new Date(startDateInput.value);
-                                const endDate = new Date(endDateInput.value);
-                    
-                                // Validate if end date is after start date
-                                if (endDate <= startDate) {
-                                    alert('Tanggal berakhir harus lebih besar dari tanggal mulai.');
-                                    endDateInput.value = ''; // Clear the end date input
-                                }
-                    
-                                // Calculate and update duration
-                                calculateDaysDifference();
-                            });
-                    
-                            function calculateDaysDifference() {
-                                const startDate = new Date(startDateInput.value);
-                                const endDate = new Date(endDateInput.value);
-                    
-                                if (startDate && endDate && endDate >= startDate) {
-                                    const timeDifference = endDate - startDate;
-                                    const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Hitung jumlah hari bulat ke bawah
-                    
-                                    // Hitung sisa jam
-                                    const hoursDifference = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    
-                                    // durationInput.value = `${dayDifference} hari ${hoursDifference} jam`; // Tampilkan dalam format hari dan jam
-                    
-                                    const dayDifferenceFloat = (timeDifference / (1000 * 60 * 60 * 24)).toFixed(2); // Hitung jumlah hari
-                    
-                                    // Ambil harga per hari dari input
-                                    const price = parseInt(priceInput.value);
-                    
-                                    // Hitung total harga
-                                    const totalPrice = Math.floor(dayDifferenceFloat * price) ;
-                    
-                                    // Tampilkan total harga dalam elemen input total-price
-                                    document.getElementById('total').value = totalPrice; // Format dengan dua angka di belakang koma
-                    
-                                    document.getElementById('duration').value = dayDifferenceFloat;
-                                } else {
-                                    //durationInput.value = ''; // Jika startDate atau endDate tidak valid, atur nilai durationInput menjadi kosong
-                                    document.getElementById('total').value = ''; // Jika startDate atau endDate tidak valid, atur nilai total-price menjadi kosong
-                                }
-                            }
-                        });
-                    
-                    </script>
+        // Set minimum value for start_date to today's date
+        const today = new Date().toISOString().split('T')[0];
+        startDateInput.setAttribute('min', today);
+
+        startDateInput.addEventListener('change', function() {
+            const selectedDate = new Date(startDateInput.value);
+            const todayDate = new Date();
+
+            // Validate if selectedDate is today or a future date
+            if (selectedDate < todayDate) {
+                alert('Tanggal mulai harus hari ini atau tanggal selanjutnya.');
+                startDateInput.value = today; // Set back to today's date
+            }
+
+            // Set minimum value for end_date to start_date + 1 day
+            const minEndDate = new Date(selectedDate);
+            minEndDate.setDate(selectedDate.getDate() + 1);
+            endDateInput.setAttribute('min', minEndDate.toISOString().split('T')[0]);
+            
+            // Reset end_date if it's before the new minEndDate
+            if (new Date(endDateInput.value) < minEndDate) {
+                endDateInput.value = '';
+            }
+
+            // Calculate and update duration
+            calculateDaysDifference();
+        });
+
+        endDateInput.addEventListener('change', function() {
+            const startDate = new Date(startDateInput.value);
+            const endDate = new Date(endDateInput.value);
+
+            // Validate if end date is after start date
+            if (endDate <= startDate) {
+                alert('Tanggal berakhir harus lebih besar dari tanggal mulai.');
+                endDateInput.value = ''; // Clear the end date input
+            }
+
+            // Calculate and update duration
+            calculateDaysDifference();
+        });
+
+        function calculateDaysDifference() {
+            const startDate = new Date(startDateInput.value);
+            const endDate = new Date(endDateInput.value);
+
+            if (startDate && endDate && endDate >= startDate) {
+                const timeDifference = endDate - startDate;
+                const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Hitung jumlah hari bulat ke bawah
+
+                console.log(timeDifference);
+                console.log(dayDifference);
+
+                //durationInput.value = `${dayDifference} hari`; // Tampilkan dalam format hari dan jam
+
+                // Ambil harga per hari dari input
+                const price = parseInt(priceInput.value);
+                console.log(price);
+
+                // Hitung total harga
+                const total = Math.floor(dayDifference * price) ;
+
+                // Tampilkan total harga dalam elemen input total-price
+                document.getElementById('total').value = total; // Format dengan dua angka di belakang koma
+
+                document.getElementById('duration').value = dayDifference;
+            } else {
+                durationInput.value = ''; // Jika startDate atau endDate tidak valid, atur nilai durationInput menjadi kosong
+                document.getElementById('total').value = ''; // Jika startDate atau endDate tidak valid, atur nilai total-price menjadi kosong
+            }
+        }
+
+    });
+
+</script>                  
 
     
   @endsection

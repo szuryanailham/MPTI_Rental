@@ -5,15 +5,15 @@
 
     <!-- CONTENT START -->
     <div class="row justify-content-center mt-4 m-3">
-        <div class="col-sm-5 align-self-center d-flex me-5">
+        <div class="col-md-5  d-flex align-self-center justify-content-center gap-5">
           <img src="assets/profile_cw.png" alt="unit picture" class="img-fluid" >
         </div>
-          <div class="col-12 col-md-5 pt-4">
+          <div class=" col-md-5 pt-4">
             <h3 class="title" style="font-size: 25px; font-weight: 700; text-align: center; font-family: 'Plus Jakarta Sans';
             font-style: bold;">TENTANG KAMI</h3>
             <p class="desc" style="color: #000000; text-align: center;">Cahaya Waskitha Transport adalah penyedia layanan penyewaan kendaraan yang berlokasi di Yogyakarta, sebuah kota budaya yang kaya akan sejarah dan pesona alam. Dikenal karena komitmennya dalam menyediakan pengalaman perjalanan yang nyaman dan aman bagi pelanggan, Cahaya Waskitha Transport menawarkan berbagai pilihan kendaraan yang terawat dengan baik, mulai dari mobil keluarga hingga motor untuk petualangan pribadi.</p>
             <div class="row justify-content-center">
-              <table style="width: auto;">
+              <table style="width: auto;" >
                 <tr>
                     <td><img src="assets/Company.png" alt=""></td>
                     <td>Cahaya Waskitha Transport</td>

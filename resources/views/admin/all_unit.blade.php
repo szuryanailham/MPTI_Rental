@@ -9,7 +9,7 @@
                     </div>
                     {{-- Search --}}
                     <div class="row justify-content-center">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-6 mt-4">
                             <form action="/dashboard-units" method="GET">
                                 <div class="input-group mb-3">
                                     <input type="text" name="search" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" value=" {{request('search')}} ">

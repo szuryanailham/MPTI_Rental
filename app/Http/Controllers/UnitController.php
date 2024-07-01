@@ -15,20 +15,24 @@ class UnitController extends Controller
      */
     public function index()
     {
-        $units = Unit::paginate(10);
-
-        if(request('search')){
-            $search = request('search');
-
-            $units->where('name', 'like', '%' . request('search') . '%')
-                    ->orWhereHas('category', function($query) use ($search) {
-                        $query->where('name', 'like', '%' . $search . '%');
-                    })
-                    ->orWhere('id', 'like', '%' . request('search') . '%');
+        $query = Unit::query();
+    
+        if (request('search')) {
+            $search = '%' . request('search') . '%';
+    
+            $query->where(function ($query) use ($search) {
+                $query->where('name', 'like', $search)
+                      ->orWhereHas('category', function($query) use ($search) {
+                          $query->where('name', 'like', $search);
+                      })
+                      ->orWhere('id', 'like', $search);
+            });
         }
-
+    
+        $units = $query->paginate(10);
+    
         return view('admin.all_unit', [
-            'units' => $units
+            'units' => $units,
         ]);
     }
 

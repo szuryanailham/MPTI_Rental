@@ -1,13 +1,8 @@
-.sidebar-custom{ 
-    background-color: black !important;
-} 
-
-@media (max-width: 767px) {
-    .sidebar-custom {
-        display: block;
-    }
-    .sidebar-custom .active {
-        display: block !important;
-    }
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+.navbar {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
 }

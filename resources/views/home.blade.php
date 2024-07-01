@@ -42,8 +42,20 @@
     </div>
     <!-- CAROUSEL IMAGE END -->
 
+     {{-- Search --}}
+    <div class="row justify-content-center px-3">
+      <div class="col-md-6 mt-5">
+          <form action="/" method="GET">
+              <div class="input-group mb-3">
+                  <input type="text" name="search" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" value=" {{request('search')}} ">
+                  <button class="btn btn-dark" type="submit" id="button-addon2">Search</button>
+              </div>
+          </form>
+      </div>
+    </div>
+
     <!-- CARD UNIT START -->
-    <div class="row mt-2 p-5 justify-content-center">
+    <div class="row mt-2 p-3 justify-content-center">
       
       @foreach ($units as $unit)
         <div class="col-lg-4 g-3 mb-4 align-items-stretch">
@@ -53,7 +65,7 @@
               <div>{{$unit->price}}K</div>
             </div>
             <div class="card-body mx-auto">
-              <a href="/detail">
+              <a href="/detail" class="d-flex justify-content-center">
                 @if ($unit->image)
                     <img src="{{asset('storage/'. $unit->image)}}" class="img-thumbnail" alt="gambar unit" style="width: 200px;">            
                 @else
@@ -68,15 +80,15 @@
               </a>
                 <div class="container">
                   <div class="row align-items-start mt-3" style="font-size: 15px;">
-                    <div class="col">
+                    <div class="col-sm-4 text-center">
                       <img src="/assets/clock.png" alt="clock" >
                       <p>1 Hari</p>
                     </div>
-                    <div class="col">
+                    <div class="col-sm-4 text-center">
                       <img src="/assets/user_unit.png" alt="clock">
                       <p>{{$unit->capacity}} Orang</p>
                     </div>
-                    <div class="col">
+                    <div class="col-sm-4 text-center">
                       <img src="/assets/gas_station.png" alt="clock">
                       <p>Full Bensin</p>
                     </div>

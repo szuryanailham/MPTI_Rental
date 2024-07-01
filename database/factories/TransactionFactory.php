@@ -17,17 +17,18 @@ class TransactionFactory extends Factory
     public function definition(): array
     {
         return [
+            'code' => 'TX' . $this->faker->unique()->bothify('#########'),
             'name' => $this->faker->name(),
             'address' => $this->faker->address(),
             'phone_number' => $this->faker->phoneNumber(),
             'pickup_address' => $this->faker->address(),
-            'start_date' => $this->faker->dateTime(),
-            // 'start_time' => $this->faker->time(),
+            'start_date' => $this->faker->date(),
+            'start_time' => $this->faker->time(),
             'return_address' => $this->faker->address(),
-            'end_date' => $this->faker->dateTime(),
-            // 'end_time' => $this->faker-> time(),
+            'end_date' => $this->faker->date(),
+            'end_time' => $this->faker-> time(),
             'duration' => mt_rand(1, 30),
-            'total' => $this->faker->numberBetween(100, 300),
+            'total' => $this->faker->numberBetween(100, 300) * 1000,
             'status' => $this->faker->randomElement(['open', 'close']),
             'unit_id' => mt_rand(1, 20)
         ];

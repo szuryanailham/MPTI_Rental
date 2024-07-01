@@ -30,6 +30,7 @@ Route::get('/detail/{unit:slug}', [HomeController::class, 'show']);
 
 Route::get('/order/{unit:slug}', [OrderController::class, 'order']);
 Route::post('/order/{unit:slug}', [OrderController::class, 'store']);
+Route::get('/print-order', [OrderController::class, 'printOrder'])->name('print-order');
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -53,6 +54,8 @@ Route::get('/add-promo', function () {
 Route::resource('/dashboard-units', UnitController::class)->parameters([
     'dashboard-units' => 'unit'
 ]);
+
+
 Route::get('/add-unit/checkSlug', [UnitController::class, 'checkSlug']);
 
 
@@ -88,10 +91,12 @@ Route::get('/tables-admin', function () {
     return view('admin/tables_admin');
 });
 
-Route::get('/transaction', [TransactionController::class, 'index']);
+Route::get('/transactions', [TransactionController::class, 'index']);
 
 Route::get('/transaction/{transaction}/edit', [TransactionController::class, 'edit']);
 Route::put('/transaction/{transaction}', [TransactionController::class, 'update']);
+Route::delete('/transaction/{transaction}/delete', [TransactionController::class, 'destroy']);
+
 
 
 

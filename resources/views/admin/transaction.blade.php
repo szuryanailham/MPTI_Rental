@@ -4,8 +4,20 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800 font-weight-bold">Transaction</h1>
-                        <a href="add_unit.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        <a href="/dashboard-units/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-plus fa-sm text-white-50"></i> Add Unit</a>
+                    </div>
+
+                    {{-- Search --}}
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 mb-3">
+                            <form action="/transactions" method="GET">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="search" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" value=" {{request('search')}} ">
+                                    <button class="btn btn-primary" type="submit" id="button-addon2">Search</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
                     <!-- Daftar Transaksi Pemesanan -->
@@ -16,18 +28,24 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Daftar Transaksi Pemesanan</h6>
                                 </div>
                                 <div class="card-body">
+                                    {{-- Alert --}}
+                                    @if (session()->has('success'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
                                     <div class="table-responsive">
                                         <table class="table table-bordered text-dark font-weight-bold" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
                                                 <tr>
-                                                    <th>Id</th>
+                                                    <th>Kode</th>
                                                     <th>Gambar</th>
                                                     <th>Unit</th>
                                                     <th>Kategori</th>
                                                     <th>Nama</th>
                                                     <th>Nomor Telepon</th>
                                                     <th>Alamat</th>
-                                                    <th>Harga</th>
+                                                    <th>Total</th>
                                                     <th>Tanggal Mulai</th>
                                                     <th>Tanggal Berakhir</th>
                                                     <th>Lokasi Peminjaman</th>
@@ -39,7 +57,7 @@
                                                 <!-- Data transaksi pemesanan akan ditampilkan di sini -->
                                                 @foreach ($transactions as $transaction)
                                                     <tr>
-                                                        <td>{{$transaction->id}}</td>
+                                                        <td>{{$transaction->code}}</td>
                                                         <td>
                                                             @if ($transaction->unit->image)
                                                                 <img src="{{asset('storage/'. $unit->image)}}" style="width: 100px;" alt="gambar unit">            
@@ -67,7 +85,14 @@
                                                         <td>
                                                             <div class="d-flex">
                                                                 <a href="/transaction/{{$transaction->id}}/edit" class="btn btn-primary btn-sm flex-fill me-2">Edit</a>
-                                                                <button class="btn btn-danger btn-sm flex-fill">Delete</button>
+                                                                
+                                                                <form action="/transaction/{{$transaction->id}}/delete" method="POST" class="d-inline">
+                                                                    @method('DELETE')
+                                                                    @csrf
+                                                                    <button class="btn btn-danger btn-sm flex-fill" onclick="return confirm('Are you sure?')">
+                                                                        Delete
+                                                                    </button>
+                                                                </form>
                                                             </div>
                                                             
                                                         </td>
@@ -77,6 +102,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    {{$transactions->links()}}
                                 </div>
                             </div>
                         </div>

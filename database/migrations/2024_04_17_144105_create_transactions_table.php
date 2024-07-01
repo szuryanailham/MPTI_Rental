@@ -15,15 +15,16 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('unit_id');
+            $table->string('code')->unique(); ;
             $table->string('name');
             $table->text('address');
             $table->string('phone_number');
             $table->text('pickup_address');
-            $table->dateTime('start_date');
-            // $table->time('start_time');
+            $table->date('start_date');
+            $table->time('start_time');
             $table->text('return_address');
-            $table->dateTime('end_date');
-            // $table->time('end_time');
+            $table->date('end_date');
+            $table->time('end_time');
             $table->integer('duration');
             $table->integer('total');
             $table->string('status')->nullable();

@@ -37,7 +37,7 @@
         @endif
 
          {{-- FILL IN THE FORM  --}}
-        <form action="/order/{{$unit->slug}}" method="POST" >
+        <form action="/order/{{$unit->slug}}" method="POST" id="orderForm">
           @csrf
                 <!-- PENYEWAAN START -->
                 <div class="row mt-5">
@@ -49,6 +49,8 @@
                 <div class="hidden-input">
                     <input type="number" name="unit_id" class="form-control" id="unit_id" value="{{ old('unit_id', $unit->id) }}" readonly hidden required>
                     <input type="text" name="status" class="form-control" id="status" value="{{ old('status', 'open') }}" readonly hidden>
+                    <input type="text" name="code" class="form-control" id="code" value="{{old('code')}}" readonly hidden>
+                    <input type="text" name="unit_name" class="form-control" id="unit_name" value="{{old('unit_name', $unit->name)}}" readonly hidden>
                 </div>
                 <div class="row ">
                     <div class="mb-3">
@@ -79,7 +81,8 @@
                         @enderror
                       </div>
                       <div class="mb-3">
-                            <p>Unit: <b>{{$unit->name}}</b>  Price: <b>{{$unit->price}}/Hari</b></p>     
+                            <p>Unit: <b>{{$unit->name}}</b>  Price: <b>{{$unit->price}}/Hari</b></p>
+                            <input type="number" name="price" id="price" value="{{ old('price', $unit->price) }}" hidden required>    
                     </div>
                     
                 </div>            
@@ -103,8 +106,13 @@
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <label for="start-time" class="form-label">Waktu</label>
-                    <input type="time" name="start-time" class="form-control" id="start-time" placeholder="Waktu Sewa"  >
+                    <label for="start_time" class="form-label">Waktu</label>
+                    <input type="time" name="start_time" class="form-control" id="start_time" value="{{ old('start_time') }}" placeholder="Waktu Sewa"  >
+                    @error('start_time')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>  
+                    @enderror
                   </div>
                   <div class="mb-3">
                     <label for="start_date" class="form-label">Tanggal mulai</label>
@@ -136,8 +144,13 @@
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <label for="end-time" class="form-label">Waktu</label>
-                    <input type="time" name="end-time" class="form-control" id="end-time" placeholder="Waktu Kumpul"  >
+                    <label for="end_time" class="form-label">Waktu</label>
+                    <input type="time" name="end_time" class="form-control" id="end_time" value="{{ old('end_time') }}" placeholder="Waktu Kumpul"  >
+                    @error('end_time')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>  
+                    @enderror
                   </div>
                   <div class="mb-3">
                     <label for="end_date" class="form-label">Tanggal berakhir</label>
@@ -171,10 +184,9 @@
                     </div>                        
                 </div>
                 <div class="col-md-3 mb-3">
-                    <label for="duration-text" class="form-label">Durasi Sewa (hari & jam)</label>
-                    <input type="number" name="duration" id="duration" value="{{old('duration')}}" readonly hidden>
-                    <input type="text" name="duration-text" class="form-control @error('duration-text') is-invalid @enderror" id="duration-text" placeholder="Durasi Sewa" value="{{ old('duration-text') }}" readonly>
-                    @error('duration-text')
+                    <label for="duration" class="form-label">Durasi Sewa (hari & jam)</label>
+                    <input type="number" name="duration" class="form-control @error('duration') is-invalid @enderror" id="duration" placeholder="Durasi Sewa" value="{{ old('duration') }}" readonly>
+                    @error('duration')
                         <div class="invalid-feedback">
                             {{$message}}
                         </div>  
@@ -197,7 +209,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const startDateInput = document.getElementById('start_date');
         const endDateInput = document.getElementById('end_date');
-        const durationInput = document.getElementById('duration-text');
+        const durationInput = document.getElementById('duration');
         const priceInput = document.getElementById('price'); // Ambil elemen input harga per hari
 
         // Set minimum value for start_date to today's date
@@ -242,6 +254,10 @@
             calculateDaysDifference();
         });
 
+        startDateInput.addEventListener('change', function() {
+            generateTransactionCode();
+        });
+
         function calculateDaysDifference() {
             const startDate = new Date(startDateInput.value);
             const endDate = new Date(endDateInput.value);
@@ -250,28 +266,67 @@
                 const timeDifference = endDate - startDate;
                 const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Hitung jumlah hari bulat ke bawah
 
-                // Hitung sisa jam
-                const hoursDifference = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                console.log(timeDifference);
+                console.log(dayDifference);
 
-                durationInput.value = `${dayDifference} hari ${hoursDifference} jam`; // Tampilkan dalam format hari dan jam
-
-                const dayDifferenceFloat = (timeDifference / (1000 * 60 * 60 * 24)).toFixed(2); // Hitung jumlah hari
+                //durationInput.value = `${dayDifference} hari`; // Tampilkan dalam format hari dan jam
 
                 // Ambil harga per hari dari input
                 const price = parseInt(priceInput.value);
+                console.log(price);
 
                 // Hitung total harga
-                const totalPrice = Math.floor(dayDifferenceFloat * price) ;
+                const total = Math.floor(dayDifference * price) ;
 
                 // Tampilkan total harga dalam elemen input total-price
-                document.getElementById('total').value = totalPrice; // Format dengan dua angka di belakang koma
+                document.getElementById('total').value = total; // Format dengan dua angka di belakang koma
 
-                document.getElementById('duration').value = dayDifferenceFloat;
+                document.getElementById('duration').value = dayDifference;
             } else {
                 durationInput.value = ''; // Jika startDate atau endDate tidak valid, atur nilai durationInput menjadi kosong
                 document.getElementById('total').value = ''; // Jika startDate atau endDate tidak valid, atur nilai total-price menjadi kosong
             }
         }
+
+        document.getElementById('orderForm').addEventListener('submit', function (e) {
+        const codeInput = document.getElementById('code');
+        if (!codeInput.value) {
+            generateTransactionCode();
+        }
+        });
+
+        function generateTransactionCode() {
+            const startDateInput = document.getElementById('start_date');
+            const transactionCodeInput = document.getElementById('code');
+            const startDate = new Date(startDateInput.value);
+
+            if (!startDateInput.value) {
+                alert('Please select a start date.');
+                return;
+            }
+
+            // Format the start date as ymd (e.g., 240625)
+            const formattedDate = startDate.toISOString().slice(2, 10).replace(/-/g, '').slice(0, 6);
+
+            // Retrieve or initialize the sequence number from local storage
+            let sequence = parseInt(localStorage.getItem(`sequence_${formattedDate}`)) || 0;
+
+            // Increment the sequence number
+            sequence += 1;
+
+            // Save the updated sequence number back to local storage
+            localStorage.setItem(`sequence_${formattedDate}`, sequence);
+
+            // Format the sequence number as 3 digits
+            const formattedSequence = sequence.toString().padStart(3, '0');
+
+            // Generate the transaction code
+            const transactionCode = `TX${formattedDate}${formattedSequence}`;
+
+            // Display the transaction code
+            transactionCodeInput.value = transactionCode;
+        }
+
     });
 
 </script>
